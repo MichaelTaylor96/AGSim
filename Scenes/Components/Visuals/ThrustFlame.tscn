@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0cyamf3qvofy"]
+
+[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="1_2cgx3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hmv06"]
+
+[node name="StandardFlame" type="MeshInstance3D" unique_id=1114378593]
+transform = Transform3D(-1.3179892e-08, -0.30152076, 0, 0.30152076, -1.3179892e-08, 0, 0, 0, 0.30152076, 0, 0, 0)
+material_override = ExtResource("1_2cgx3")
+mesh = SubResource("CapsuleMesh_hmv06")

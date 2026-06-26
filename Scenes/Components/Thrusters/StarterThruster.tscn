@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://se0spiol5uy"]
+
+[ext_resource type="Script" uid="uid://crowxx2ojmket" path="res://Nodes/Components/Thruster.gd" id="1_3lned"]
+[ext_resource type="Material" uid="uid://dgjiw8udooecr" path="res://addons/prototype_mini_bundle/M_prototype_dark.tres" id="2_mhdga"]
+[ext_resource type="PackedScene" uid="uid://blg1e786r14ln" path="res://Scenes/Components/Visuals/BoostFlame.tscn" id="3_r77wp"]
+[ext_resource type="PackedScene" uid="uid://d0cyamf3qvofy" path="res://Scenes/Components/Visuals/ThrustFlame.tscn" id="4_hfihs"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_r77wp"]
+
+[node name="StarterThruster" type="Node3D" unique_id=165946438 node_paths=PackedStringArray("boost_flame", "thrust_flame")]
+script = ExtResource("1_3lned")
+max_thrust = 5000.0
+boost_modifier = 10000.0
+boost_flame = NodePath("BoostFlame")
+thrust_flame = NodePath("StandardFlame")
+mass = 30.0
+metadata/_custom_type_script = "uid://crowxx2ojmket"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2033745210]
+transform = Transform3D(-2.183568e-08, 0.5817736, 0, -0.36634192, -3.4676408e-08, 0, 0, 0, 0.40108347, 0, 0, 0)
+material_override = ExtResource("2_mhdga")
+mesh = SubResource("PrismMesh_r77wp")
+
+[node name="BoostFlame" parent="." unique_id=528306677 instance=ExtResource("3_r77wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71023774, 0, 0)
+visible = false
+
+[node name="StandardFlame" parent="." unique_id=1114378593 instance=ExtResource("4_hfihs")]
+transform = Transform3D(-1.3179892e-08, -0.30152076, 0, 0.30152076, -1.3179892e-08, 0, 0, 0, 0.30152076, -0.5382169, 0, 0)
+visible = false
