@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://baf6l75hpa6vv"]
+
+[ext_resource type="Script" uid="uid://djaiplmgwg04k" path="res://Nodes/Components/Chassis.gd" id="1_s0wmj"]
+[ext_resource type="Material" uid="uid://dyx4l6ea0am6f" path="res://addons/prototype_mini_bundle/M_prototype_green.tres" id="2_45tky"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_swbot"]
+
+[node name="StarterChassis" type="Node3D" unique_id=862486162]
+script = ExtResource("1_s0wmj")
+mass = 500.0
+metadata/_custom_type_script = "uid://djaiplmgwg04k"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=780797111]
+transform = Transform3D(2.672725, 0, 0, 0, 0.47671765, 0, 0, 0, 1.6026787, 0, 0, 0)
+material_override = ExtResource("2_45tky")
+mesh = SubResource("BoxMesh_swbot")

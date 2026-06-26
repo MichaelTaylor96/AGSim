@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c41kx32qsu6ba"]
 
-[ext_resource type="PackedScene" uid="uid://u3js4h5i5rqj" path="res://Scenes/Racers/BaseRacer.tscn" id="1_ebmjs"]
 [ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://u3js4h5i5rqj" path="res://Scenes/Racers/StandardRacer.tscn" id="2_qxrlw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qxrlw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -40,9 +40,6 @@ material_override = ExtResource("1_qxrlw")
 use_collision = true
 size = Vector3(538.0381, 1, 543.8447)
 
-[node name="BaseRacer" parent="." unique_id=1106673134 instance=ExtResource("1_ebmjs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35235596, 0)
-
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1189100115]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.641167, -0.65382683, -16.17538)
 
@@ -58,3 +55,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.341408, -1.7085402, 6.1667
 
 [node name="CSGCylinder3D7" type="CSGCylinder3D" parent="." unique_id=1819192676]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.18209, -1.1893826, 17.500164)
+
+[node name="StandardRacer" parent="." unique_id=41189497 instance=ExtResource("2_qxrlw")]
