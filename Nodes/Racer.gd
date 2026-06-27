@@ -10,6 +10,9 @@ var components : Array[Component]
 const CAMERA_SPEED = 5
 var camera_tracking = true
 var debug_enabled = true
+@export var max_roll_speed: float = 3.0   # Capped radians per second
+@export var max_pitch_speed: float = 2.5
+@export var max_yaw_speed: float = 2.0
 
 
 func _ready() -> void:
@@ -34,6 +37,11 @@ func _physics_process(delta: float) -> void:
 
 	var air_drag = (-linear_velocity * linear_velocity.length()) * chassis.drag_modifier
 	apply_central_force(air_drag)
+	
+	# 2. Apply high torque for instant acceleration
+	var local_torque = Vector3(chassis.pitch, chassis.yaw, chassis.roll)
+	var global_torque = global_transform.basis * local_torque
+	apply_torque(global_torque)
 	
 	rotate_object_local(Vector3.MODEL_RIGHT, chassis.roll * delta)
 	rotate_object_local(Vector3.MODEL_TOP, chassis.yaw * delta)

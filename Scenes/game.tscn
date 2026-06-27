@@ -18,15 +18,6 @@ glow_enabled = true
 
 [node name="Game" type="Node3D" unique_id=22841451]
 
-[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="." unique_id=716185645]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.310688, -1.0887089, 2.3620539)
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=352751931]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.70793, -0.9350048, 13.9573765)
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=446680825]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5903244, -1.5519822, -6.653186)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=842288904]
 environment = SubResource("Environment_3dryh")
 
@@ -34,26 +25,101 @@ environment = SubResource("Environment_3dryh")
 transform = Transform3D(-0.5134216, 0.7431682, -0.42906833, 4.108692e-08, 0.5, 0.86602557, 0.85813665, 0.4446361, -0.25671077, -1249.7738, 100.045815, -2020.0221)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1400355609]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+[node name="StandardRacer" parent="." unique_id=41189497 instance=ExtResource("2_qxrlw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5216913, 0)
+
+[node name="race_track" type="Node3D" parent="." unique_id=687091458]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="race_track" unique_id=345888774]
 material_override = ExtResource("1_qxrlw")
 use_collision = true
-size = Vector3(538.0381, 1, 543.8447)
+size = Vector3(50, 1, 50)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1189100115]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.641167, -0.65382683, -16.17538)
+[node name="CSGBox3D2" type="CSGBox3D" parent="race_track" unique_id=914533854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 0)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=211088442]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.79538, -0.52651465, 24.838543)
+[node name="CSGBox3D4" type="CSGBox3D" parent="race_track" unique_id=1162369316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 0)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
 
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="." unique_id=1603226423]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.66503, -0.6209471, -8.578398)
-radius = 0.90234375
+[node name="CSGBox3D5" type="CSGBox3D" parent="race_track" unique_id=1745824176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147, 0, 0)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
 
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="." unique_id=463754172]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.341408, -1.7085402, 6.1667213)
+[node name="CSGBox3D6" type="CSGBox3D" parent="race_track" unique_id=965193698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196, 0, 0)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
 
-[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="." unique_id=1819192676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.18209, -1.1893826, 17.500164)
+[node name="CSGBox3D3" type="CSGBox3D" parent="race_track" unique_id=1466556881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196, 0, 48.1)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
 
-[node name="StandardRacer" parent="." unique_id=41189497 instance=ExtResource("2_qxrlw")]
+[node name="CSGBox3D7" type="CSGBox3D" parent="race_track" unique_id=857869828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195.90001, 0, 93.3)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="race_track" unique_id=1393414030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 0, 93.3)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(124.200005, 1, 50)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="race_track" unique_id=1230227277]
+transform = Transform3D(0.9396926, 0.34202015, 0, -0.34202015, 0.9396926, 0, 0, 0, 1, 4.2, 12.3, 93)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="race_track" unique_id=1590300917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.100006, 22.300001, 92.5)
+material_override = ExtResource("1_qxrlw")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="race_track" unique_id=122556041]
+transform = Transform3D(2.2, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -30, 14.8, 94.3)
+material_override = ExtResource("1_qxrlw")
+radius = 8.119
+height = 50.0
+sides = 64
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="race_track" unique_id=903010519]
+transform = Transform3D(2.2, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 39.200005, 6.6000004, 94.3)
+material_override = ExtResource("1_qxrlw")
+radius = 8.119
+height = 50.0
+sides = 64
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="race_track/CSGCylinder3D2" unique_id=1167073849]
+transform = Transform3D(1, 0, 0, 0, 1, -2.4868996e-14, 0, 2.4868996e-14, 1, 5.3181686, 0, -1.9999976)
+material_override = ExtResource("1_qxrlw")
+operation = 2
+radius = 8.119
+height = 50.0
+sides = 64
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="race_track/CSGCylinder3D2" unique_id=883189505]
+transform = Transform3D(1, 0, 0, 0, 1, -5.3290705e-14, 0, 5.3290705e-14, 1, 2.6817913, 0, -2.099996)
+material_override = ExtResource("1_qxrlw")
+operation = 2
+radius = 8.119
+height = 50.0
+sides = 64
+
+[node name="CSGBox3D" type="CSGBox3D" parent="race_track/CSGCylinder3D2" unique_id=2110333082]
+transform = Transform3D(0.76604444, -7.586288e-08, -0.6427875, 2.809713e-08, 2.7, -1.0227016e-08, 0.6427876, -2.7610852e-08, 0.7660444, -5.636366, 0, -6.2499995)
+operation = 2
+size = Vector3(20, 20, 12.5)
