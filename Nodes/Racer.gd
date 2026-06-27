@@ -38,11 +38,6 @@ func _physics_process(delta: float) -> void:
 	var air_drag = (-linear_velocity * linear_velocity.length()) * chassis.drag_modifier
 	apply_central_force(air_drag)
 	
-	# 2. Apply high torque for instant acceleration
-	var local_torque = Vector3(chassis.pitch, chassis.yaw, chassis.roll)
-	var global_torque = global_transform.basis * local_torque
-	apply_torque(global_torque)
-	
 	rotate_object_local(Vector3.MODEL_RIGHT, chassis.roll * delta)
 	rotate_object_local(Vector3.MODEL_TOP, chassis.yaw * delta)
 	rotate_object_local(Vector3.MODEL_FRONT, chassis.pitch * delta)

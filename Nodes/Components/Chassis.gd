@@ -14,7 +14,7 @@ var pitch := 0.0
 var yaw := 0.0
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	var air_brake_val = Input.get_action_strength("air_brake")
 	drag_modifier = drag_coefficient * cross_area * (1.225/2) * air_brake * air_brake_val
 		

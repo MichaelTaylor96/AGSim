@@ -5,6 +5,7 @@ class_name Repulsor
 @export var strength : float
 @export var damping : float
 @export var max_distance : float
+@export var max_force : float
 var force : Vector3 = Vector3(0,0,0)
 var force_scaling : float
 var force_position : Vector3 = Vector3(0,0,0)
@@ -29,4 +30,8 @@ func update_force(chassis_velocity : Vector3, chassis_angular_velocity : Vector3
 		var damping_force := damping * relative_velocity
 		
 		force = max(0, (spring_force - damping_force)) * up_dir * force_scaling
+		force.limit_length(max_force)
 		force_position = contact - chassis_position
+	else:
+		force *= 0
+		force_position *= 0
