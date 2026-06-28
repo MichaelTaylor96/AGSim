@@ -10,6 +10,9 @@ var components : Array[Component]
 const CAMERA_SPEED = 5
 var camera_tracking = true
 var debug_enabled = true
+@export var max_roll_speed: float = 3.0   # Capped radians per second
+@export var max_pitch_speed: float = 2.5
+@export var max_yaw_speed: float = 2.0
 
 
 func _ready() -> void:
@@ -26,7 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	for repulsor : Repulsor in array.repulsors:
 		repulsor.update_force(linear_velocity, angular_velocity, global_position)
-		#DebugDraw3D.draw_arrow(repulsor.force_position, repulsor.force_position + repulsor.force)
+		#var force_origin := repulsor.force_position + global_position
+		#DebugDraw3D.draw_arrow(force_origin, force_origin + repulsor.force/1000)
 		apply_force(repulsor.force, repulsor.force_position)
 
 	var thrust_force = thruster.thrust * global_transform.basis.x

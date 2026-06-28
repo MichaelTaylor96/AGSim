@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b3uuo7quqw6ul"]
+
+[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="1_mb0os"]
+
+[node name="Bend180" type="Node3D" unique_id=1623282666]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1668367366]
+material_override = ExtResource("1_mb0os")
+use_collision = true
+radius = 16.0
+height = 1.0
+sides = 64
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D" unique_id=169767811]
+operation = 2
+radius = 4.0
+height = 1.0
+sides = 64
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D" unique_id=830847964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14222717, 0, 8.25779)
+operation = 2
+size = Vector3(32.579987, 1, 16.572159)

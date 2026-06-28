@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://o0ews34f44wq"]
+
+[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="1_an7ub"]
+
+[node name="Lift45" type="Node3D" unique_id=1357626448]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=228320700]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_an7ub")
+use_collision = true
+radius = 20.0
+height = 12.0
+sides = 64
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D" unique_id=69834494]
+operation = 2
+radius = 19.0
+height = 12.0
+sides = 64
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D" unique_id=907895546]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 7.07, 0, -7.07)
+operation = 2
+size = Vector3(20, 12, 40)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCylinder3D" unique_id=253526978]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 0, 0, 10)
+operation = 2
+size = Vector3(20, 12, 40)
