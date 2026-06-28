@@ -29,7 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	for repulsor : Repulsor in array.repulsors:
 		repulsor.update_force(linear_velocity, angular_velocity, global_position)
-		#DebugDraw3D.draw_arrow(repulsor.force_position, repulsor.force_position + repulsor.force)
+		#var force_origin := repulsor.force_position + global_position
+		#DebugDraw3D.draw_arrow(force_origin, force_origin + repulsor.force/1000)
 		apply_force(repulsor.force, repulsor.force_position)
 
 	var thrust_force = thruster.thrust * global_transform.basis.x
