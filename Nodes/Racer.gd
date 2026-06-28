@@ -10,9 +10,6 @@ var components : Array[Component]
 const CAMERA_SPEED = 5
 var camera_tracking = true
 var debug_enabled = true
-@export var max_roll_speed: float = 3.0   # Capped radians per second
-@export var max_pitch_speed: float = 2.5
-@export var max_yaw_speed: float = 2.0
 
 
 func _ready() -> void:
@@ -49,4 +46,7 @@ func _physics_process(delta: float) -> void:
 	var right_stick = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
 	camera.rotate(Vector3.DOWN, right_stick.x * delta * CAMERA_SPEED)
 	camera.rotate_object_local(Vector3.FORWARD, right_stick.y * delta * CAMERA_SPEED)
+	
+	EventBus.spedometer_update.emit(linear_velocity.length())
+	EventBus.altimeter_update.emit(global_position.y)
 	

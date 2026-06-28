@@ -13,7 +13,10 @@ config_version=5
 config/name="AGSim"
 run/main_scene="uid://c41kx32qsu6ba"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*uid://cnvgoye6vwyuq"
 
 [debug_draw_3d]
 

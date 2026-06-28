@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u3js4h5i5rqj" path="res://Scenes/Racers/StandardRacer.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://cc6fp3v4q1xqx" path="res://Scenes/Tracks/StandardTrack.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://cvvmmjwe2ct1s" path="res://Scenes/UI/PlayUI.tscn" id="3_wrm1d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qxrlw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,3 +30,5 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5216913, 0)
 
 [node name="StandardTrack" parent="." unique_id=285509586 instance=ExtResource("2_wrm1d")]
+
+[node name="PlayUi" parent="." unique_id=622955533 instance=ExtResource("3_wrm1d")]

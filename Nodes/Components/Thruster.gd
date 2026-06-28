@@ -17,3 +17,5 @@ func _process(delta: float) -> void:
 	thrust = (max_thrust * thrust_val) + boost
 	boost_flame.visible = boost > 0
 	thrust_flame.visible = thrust_val > 0
+	
+	EventBus.thrust_update.emit(thrust_val)
