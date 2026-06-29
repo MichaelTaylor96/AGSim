@@ -17,14 +17,14 @@ mass = 30.0
 metadata/_custom_type_script = "uid://crowxx2ojmket"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2033745210]
-transform = Transform3D(-2.183568e-08, 0.5817736, 0, -0.36634192, -3.4676408e-08, 0, 0, 0, 0.40108347, 0, 0, 0)
+transform = Transform3D(-4.2515633e-15, -2.5430131e-08, 0.40108347, -0.36634195, -3.4676408e-08, 0, 2.1835678e-08, -0.5817736, -1.7531915e-08, 0, 0, 0)
 material_override = ExtResource("2_mhdga")
 mesh = SubResource("PrismMesh_r77wp")
 
 [node name="BoostFlame" parent="." unique_id=528306677 instance=ExtResource("3_r77wp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71023774, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.759)
 visible = false
 
 [node name="StandardFlame" parent="." unique_id=1114378593 instance=ExtResource("4_hfihs")]
-transform = Transform3D(-1.3179892e-08, -0.30152076, 0, 0.30152076, -1.3179892e-08, 0, 0, 0, 0.30152076, -0.5382169, 0, 0)
+transform = Transform3D(5.7611136e-16, 1.3179891e-08, 0.30152076, 0.30152076, -1.3179893e-08, 0, 1.3179893e-08, 0.30152076, -1.3179891e-08, 0, 0, 0.568)
 visible = false
