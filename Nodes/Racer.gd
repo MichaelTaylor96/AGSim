@@ -5,18 +5,20 @@ class_name Racer
 @export var thruster : Thruster
 @export var chassis : Chassis
 
-@onready var camera = $CameraPivot
+@onready var camera_pivot = $CameraPivot
+@onready var camera = $CameraPivot/Camera3D
 var components : Array[Component]
 const CAMERA_SPEED = 5
 var camera_tracking = true
 var debug_enabled = true
+var look_at_point
 
 
 func _ready() -> void:
 	components.append_array([thruster, chassis])
 	components.append_array(array.repulsors)
 	mass = components.reduce(func(sum, component): return sum + component.mass, 0.0)
-	print(mass)
+	look_at_point = global_position
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -30,22 +32,26 @@ func _physics_process(delta: float) -> void:
 		#DebugDraw3D.draw_arrow(force_origin, force_origin + repulsor.force/1000)
 		apply_force(repulsor.force, repulsor.force_position)
 
-	var thrust_force = thruster.thrust * global_transform.basis.x
+	var thrust_force = thruster.thrust * -global_transform.basis.z
 	apply_central_force(thrust_force)
 
 	var air_drag = (-linear_velocity * linear_velocity.length()) * chassis.drag_modifier
 	apply_central_force(air_drag)
 	
-	rotate_object_local(Vector3.MODEL_RIGHT, chassis.roll * delta)
+	rotate_object_local(Vector3.MODEL_FRONT, chassis.roll * delta)
 	rotate_object_local(Vector3.MODEL_TOP, chassis.yaw * delta)
-	rotate_object_local(Vector3.MODEL_FRONT, chassis.pitch * delta)
+	rotate_object_local(Vector3.MODEL_LEFT, chassis.pitch * delta)
 	
-	camera.global_position = camera.global_position.lerp(global_position, delta * 20.0)
-	if camera_tracking: camera.transform = camera.transform.interpolate_with(transform, delta * 5)
+	camera_pivot.global_position = camera_pivot.global_position.lerp(global_position, delta * 20.0)
+	if camera_tracking:
+		look_at_point = look_at_point.lerp(global_position + (0.3*linear_velocity), delta * 5)
+		var target_pivot_tranform = transform.looking_at(look_at_point)
+		camera_pivot.transform = camera_pivot.transform.interpolate_with(target_pivot_tranform, delta * 5)
+		camera.look_at(look_at_point)
 	
 	var right_stick = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
-	camera.rotate(Vector3.DOWN, right_stick.x * delta * CAMERA_SPEED)
-	camera.rotate_object_local(Vector3.FORWARD, right_stick.y * delta * CAMERA_SPEED)
+	camera_pivot.rotate(Vector3.DOWN, right_stick.x * delta * CAMERA_SPEED)
+	camera_pivot.rotate_object_local(Vector3.FORWARD, right_stick.y * delta * CAMERA_SPEED)
 	
 	EventBus.spedometer_update.emit(linear_velocity.length())
 	EventBus.altimeter_update.emit(global_position.y)
