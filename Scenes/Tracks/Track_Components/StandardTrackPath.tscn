@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c60cmocmpb30l"]
+
+[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="1_7si0m"]
+[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="2_e04ae"]
+
+[node name="PathFollow3D" type="PathFollow3D" unique_id=844920027]
+rotation_mode = 0
+
+[node name="Road" type="CSGPolygon3D" parent="." unique_id=1095104973]
+use_collision = true
+polygon = PackedVector2Array(-15, 0, -15, -0.2, 15, -0.2, 15, 0)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+material = ExtResource("1_7si0m")
+
+[node name="RightRail" type="CSGPolygon3D" parent="." unique_id=1173767400]
+use_collision = true
+polygon = PackedVector2Array(15, 0, 15, 1, 16, 1, 16, 0)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+material = ExtResource("2_e04ae")
+
+[node name="LeftRail" type="CSGPolygon3D" parent="." unique_id=1946831399]
+use_collision = true
+polygon = PackedVector2Array(-15, 0, -15, 1, -16, 1, -16, 0)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+material = ExtResource("2_e04ae")

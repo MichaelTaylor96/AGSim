@@ -9,7 +9,7 @@
 transform = Transform3D(0.9999997, 0, 0, 0, 0.6015769, 0, 0, 0, 1.0000001, 0, 0, 0)
 script = ExtResource("1_6kk6c")
 strength = 100.0
-damping = 2.0
+damping = 3.0
 max_distance = 0.5
 max_force = 100.0
 mass = 4.0

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c41kx32qsu6ba"]
 
 [ext_resource type="PackedScene" uid="uid://u3js4h5i5rqj" path="res://Scenes/Racers/StandardRacer.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://dskwy5uy5h2r3" path="res://Scenes/Tracks/PathTrack.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dskwy5uy5h2r3" path="res://Scenes/Tracks/Track1.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cvvmmjwe2ct1s" path="res://Scenes/UI/PlayUI.tscn" id="3_wrm1d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qxrlw"]
@@ -31,4 +31,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5216913, 0)
 
 [node name="PlayUi" parent="." unique_id=622955533 instance=ExtResource("3_wrm1d")]
 
-[node name="PathTrack" parent="." unique_id=659050519 instance=ExtResource("3_3dryh")]
+[node name="Track1" parent="." unique_id=659050519 instance=ExtResource("3_3dryh")]
