@@ -10,11 +10,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_vd1yw"]
 size = Vector3(1.3832397, 0.4267578, 2.432251)
 
-[node name="StandardRacer" type="RigidBody3D" unique_id=41189497 node_paths=PackedStringArray("array", "thruster", "chassis")]
+[node name="StandardRacer" type="RigidBody3D" unique_id=41189497 node_paths=PackedStringArray("repulsors", "thrusters", "chassis")]
 angular_damp = 1.25
 script = ExtResource("1_y4xtg")
-array = NodePath("RepulsorArray")
-thruster = NodePath("StarterThruster")
+repulsors = NodePath("RepulsorArray")
+thrusters = [NodePath("StarterThruster")]
 chassis = NodePath("StarterChassis")
 metadata/_custom_type_script = "uid://b50xy062xlcor"
 
@@ -29,9 +29,9 @@ shape = SubResource("BoxShape3D_vd1yw")
 [node name="StarterThruster" parent="." unique_id=165946438 instance=ExtResource("6_2nxyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3)
 
-[node name="RepulsorArray" type="Node3D" parent="." unique_id=248067906 node_paths=PackedStringArray("repulsors")]
+[node name="RepulsorArray" type="Node3D" parent="." unique_id=248067906 node_paths=PackedStringArray("items")]
 script = ExtResource("7_3dl45")
-repulsors = [NodePath("StarterRepulsor"), NodePath("StarterRepulsor2"), NodePath("StarterRepulsor3"), NodePath("StarterRepulsor4")]
+items = [NodePath("StarterRepulsor"), NodePath("StarterRepulsor2"), NodePath("StarterRepulsor3"), NodePath("StarterRepulsor4")]
 metadata/_custom_type_script = "uid://b2k8p4abgffyx"
 
 [node name="StarterRepulsor" parent="RepulsorArray" unique_id=2005247763 instance=ExtResource("4_xbeba")]

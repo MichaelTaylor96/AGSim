@@ -1,8 +1,8 @@
 extends RigidBody3D
 class_name Racer
 
-@export var array : RepulsorArray
-@export var thruster : Thruster
+@export var repulsors : RepulsorArray
+@export var thrusters : Array[Thruster]
 @export var chassis : Chassis
 
 @onready var camera_pivot = $CameraPivot
@@ -15,8 +15,9 @@ var look_at_point
 
 
 func _ready() -> void:
-	components.append_array([thruster, chassis])
-	components.append_array(array.repulsors)
+	components.append_array(thrusters)
+	components.append_array(repulsors.items)
+	components.append(chassis)
 	mass = components.reduce(func(sum, component): return sum + component.mass, 0.0)
 	look_at_point = global_position
 
@@ -26,13 +27,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	for repulsor : Repulsor in array.repulsors:
-		repulsor.update_force(linear_velocity, angular_velocity, global_position)
+	for force in repulsors.get_forces(linear_velocity, angular_velocity, global_position):
 		#var force_origin := repulsor.force_position + global_position
 		#DebugDraw3D.draw_arrow(force_origin, force_origin + repulsor.force/1000)
-		apply_force(repulsor.force, repulsor.force_position)
+		apply_force(force['force'], force['position'])
 
-	var thrust_force = thruster.thrust * -global_transform.basis.z
+	var thrust_force = Vector3()
+	for thruster in thrusters:
+		thrust_force += thruster.thrust * -global_transform.basis.z
 	apply_central_force(thrust_force)
 
 	var air_drag = (-linear_velocity * linear_velocity.length()) * chassis.drag_modifier

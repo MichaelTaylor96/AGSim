@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://1duw2rwt85ru"]
+
+[ext_resource type="Script" uid="uid://djaiplmgwg04k" path="res://Nodes/Components/Chassis.gd" id="1_fbn48"]
+[ext_resource type="Material" uid="uid://dyx4l6ea0am6f" path="res://addons/prototype_mini_bundle/M_prototype_green.tres" id="2_p7t3k"]
+
+[node name="HeavyChassis" type="Node3D" unique_id=418172384]
+script = ExtResource("1_fbn48")
+cross_area = 5.0
+drag_coefficient = 0.6
+yaw_speed = 2.8
+pitch_speed = 1.9
+air_brake = 80
+mass = 700.0
+metadata/_custom_type_script = "uid://djaiplmgwg04k"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2024123875]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.8, 0, 0)
+material_override = ExtResource("2_p7t3k")
+size = Vector3(1, 0.2, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=862130759]
+transform = Transform3D(0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0, 1, 0.8, 0, 0)
+material_override = ExtResource("2_p7t3k")
+size = Vector3(1, 0.2, 3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=2086653526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0304537)
+material_override = ExtResource("2_p7t3k")
+size = Vector3(1.6, 0.2, 0.6)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1010384773]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.7207962)
+material_override = ExtResource("2_p7t3k")
+radius = 0.35
+height = 1.25
+sides = 25
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1557564970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.06187284)
+material_override = ExtResource("2_p7t3k")
+radius = 0.35
+radial_segments = 30
+rings = 10

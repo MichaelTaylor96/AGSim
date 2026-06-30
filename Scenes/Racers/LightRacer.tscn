@@ -10,11 +10,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2g3e"]
 size = Vector3(0.7089844, 0.2128601, 2.7376099)
 
-[node name="LightRacer" type="RigidBody3D" unique_id=1511503172 node_paths=PackedStringArray("array", "thruster", "chassis")]
+[node name="LightRacer" type="RigidBody3D" unique_id=1511503172 node_paths=PackedStringArray("repulsors", "thrusters", "chassis")]
 angular_damp = 1.0
 script = ExtResource("1_4qtv1")
-array = NodePath("RepulsorArray")
-thruster = NodePath("LightThruster")
+repulsors = NodePath("RepulsorArray")
+thrusters = [NodePath("LightThruster")]
 chassis = NodePath("LightChassis")
 metadata/_custom_type_script = "uid://b50xy062xlcor"
 
@@ -23,9 +23,9 @@ metadata/_custom_type_script = "uid://b50xy062xlcor"
 [node name="LightThruster" parent="." unique_id=457528942 instance=ExtResource("3_wuiln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.1)
 
-[node name="RepulsorArray" type="Node3D" parent="." unique_id=1353970690 node_paths=PackedStringArray("repulsors")]
+[node name="RepulsorArray" type="Node3D" parent="." unique_id=1353970690 node_paths=PackedStringArray("items")]
 script = ExtResource("4_elj5d")
-repulsors = [NodePath("SoftRepulsor"), NodePath("SoftRepulsor2"), NodePath("SoftRepulsor3")]
+items = [NodePath("SoftRepulsor"), NodePath("SoftRepulsor2"), NodePath("SoftRepulsor3")]
 metadata/_custom_type_script = "uid://b2k8p4abgffyx"
 
 [node name="SoftRepulsor" parent="RepulsorArray" unique_id=51025154 instance=ExtResource("5_l44tl")]
