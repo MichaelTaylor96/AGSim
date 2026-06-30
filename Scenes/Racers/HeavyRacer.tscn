@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://3t234ux0juyc"]
+
+[ext_resource type="Script" uid="uid://b50xy062xlcor" path="res://Nodes/Racer.gd" id="1_jbly5"]
+[ext_resource type="PackedScene" uid="uid://2dwmao7yirsb" path="res://Scenes/Components/camera.tscn" id="2_2mbsc"]
+[ext_resource type="PackedScene" uid="uid://1duw2rwt85ru" path="res://Scenes/Components/Chassis/HeavyChassis.tscn" id="3_mgd5u"]
+[ext_resource type="PackedScene" uid="uid://d1rlfayb6ec1b" path="res://Scenes/Components/Thrusters/HeavyThruster.tscn" id="4_61adi"]
+[ext_resource type="PackedScene" uid="uid://sm02f4y0cvpo" path="res://Scenes/Components/Thrusters/AuxiliaryThruster.tscn" id="5_xfnf5"]
+[ext_resource type="Script" uid="uid://b2k8p4abgffyx" path="res://Nodes/Components/RepulsarArray.gd" id="6_jrvjr"]
+[ext_resource type="PackedScene" uid="uid://bx1sfcibngsmb" path="res://Scenes/Components/Repulsors/StrongRepulsor.tscn" id="7_31287"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2mbsc"]
+size = Vector3(2.1839447, 0.6944275, 2.9316406)
+
+[node name="HeavyRacer" type="RigidBody3D" unique_id=1002784777 node_paths=PackedStringArray("repulsors", "thrusters", "chassis")]
+script = ExtResource("1_jbly5")
+repulsors = NodePath("RepulsorArray")
+thrusters = [NodePath("Thrusters/HeavyThruster"), NodePath("Thrusters/AuxiliaryThruster"), NodePath("Thrusters/AuxiliaryThruster2")]
+chassis = NodePath("HeavyChassis")
+metadata/_custom_type_script = "uid://b50xy062xlcor"
+
+[node name="CameraPivot" parent="." unique_id=940932064 instance=ExtResource("2_2mbsc")]
+
+[node name="HeavyChassis" parent="." unique_id=418172384 instance=ExtResource("3_mgd5u")]
+
+[node name="Thrusters" type="Node3D" parent="." unique_id=329169337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4160616)
+
+[node name="HeavyThruster" parent="Thrusters" unique_id=803647051 instance=ExtResource("4_61adi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.079316854, -0.06911993)
+
+[node name="AuxiliaryThruster" parent="Thrusters" unique_id=225340719 instance=ExtResource("5_xfnf5")]
+transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 0.87756586, 0.062827945, -2.057487)
+
+[node name="AuxiliaryThruster2" parent="Thrusters" unique_id=242416281 instance=ExtResource("5_xfnf5")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.878, 0.063, -2.057)
+
+[node name="RepulsorArray" type="Node3D" parent="." unique_id=1756768370 node_paths=PackedStringArray("items")]
+script = ExtResource("6_jrvjr")
+items = [NodePath("StrongRepulsor"), NodePath("StrongRepulsor2"), NodePath("StrongRepulsor3"), NodePath("StrongRepulsor4"), NodePath("StrongRepulsor5")]
+metadata/_custom_type_script = "uid://b2k8p4abgffyx"
+
+[node name="StrongRepulsor" parent="RepulsorArray" unique_id=676188116 instance=ExtResource("7_31287")]
+transform = Transform3D(0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 0, 0, 1, -1.15, -0.35, 1.2)
+
+[node name="StrongRepulsor2" parent="RepulsorArray" unique_id=308817205 instance=ExtResource("7_31287")]
+transform = Transform3D(0.99619466, 0.08715573, 0, -0.08715573, 0.99619466, 0, 0, 0, 1, -1.15, -0.35, -1.2)
+
+[node name="StrongRepulsor3" parent="RepulsorArray" unique_id=728261311 instance=ExtResource("7_31287")]
+transform = Transform3D(0.99619466, -0.08715573, 0, 0.08715573, 0.99619466, 0, 0, 0, 1, 1.15, -0.35, 1.2)
+
+[node name="StrongRepulsor4" parent="RepulsorArray" unique_id=862011471 instance=ExtResource("7_31287")]
+transform = Transform3D(0.99619466, -0.08715573, 0, 0.08715573, 0.99619466, 0, 0, 0, 1, 1.15, -0.35, -1.2)
+
+[node name="StrongRepulsor5" parent="RepulsorArray" unique_id=1869289245 instance=ExtResource("7_31287")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33206725, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1542740894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001625061, -0.0927887, -0.001953125)
+shape = SubResource("BoxShape3D_2mbsc")

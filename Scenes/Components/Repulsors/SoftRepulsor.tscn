@@ -7,9 +7,9 @@
 
 [node name="SoftRepulsor" type="Node3D" unique_id=51025154]
 script = ExtResource("1_8ewyj")
-strength = 5.0
-damping = 5.0
-max_distance = 1.0
+strength = 50.0
+damping = 4.0
+max_distance = 0.75
 max_force = 300.0
 metadata/_custom_type_script = "uid://dfoqrfa6tee8h"
 

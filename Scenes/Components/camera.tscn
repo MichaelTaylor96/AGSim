@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://2dwmao7yirsb"]
+
+[node name="CameraPivot" type="Node3D" unique_id=940932064]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1986316756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 5.3)
+current = true
