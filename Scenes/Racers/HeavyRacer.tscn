@@ -12,6 +12,7 @@
 size = Vector3(2.1839447, 0.6944275, 2.9316406)
 
 [node name="HeavyRacer" type="RigidBody3D" unique_id=1002784777 node_paths=PackedStringArray("repulsors", "thrusters", "chassis")]
+angular_damp = 1.5
 script = ExtResource("1_jbly5")
 repulsors = NodePath("RepulsorArray")
 thrusters = [NodePath("Thrusters/HeavyThruster"), NodePath("Thrusters/AuxiliaryThruster"), NodePath("Thrusters/AuxiliaryThruster2")]
