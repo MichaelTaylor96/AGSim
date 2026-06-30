@@ -12,6 +12,7 @@ const CAMERA_SPEED = 5
 var camera_tracking = true
 var debug_enabled = true
 var look_at_point
+var reset_flag = false
 
 
 func _ready() -> void:
@@ -58,3 +59,11 @@ func _physics_process(delta: float) -> void:
 	EventBus.spedometer_update.emit(linear_velocity.length())
 	EventBus.altimeter_update.emit(global_position.y)
 	
+	if reset_flag: _reset()
+		
+	
+func _reset():
+	global_transform = Transform3D()
+	linear_velocity = Vector3()
+	angular_velocity = Vector3()
+	reset_flag = false
