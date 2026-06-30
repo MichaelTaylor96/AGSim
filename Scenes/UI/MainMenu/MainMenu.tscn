@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://c6bwc5wrceikd"]
+
+[ext_resource type="Script" uid="uid://ds1ne6ekn0mxv" path="res://Scenes/UI/MainMenu/main_menu.gd" id="1_les83"]
+[ext_resource type="Texture2D" uid="uid://cqa4srqn7tr2a" path="res://Assets/UI/InfinitumThumbnail.png" id="2_67d64"]
+[ext_resource type="Texture2D" uid="uid://c8rt2ckajrvp7" path="res://Assets/UI/TheDropThumbnail.png" id="3_6swpd"]
+[ext_resource type="Texture2D" uid="uid://c3lb8bvgemedp" path="res://Assets/UI/TheLaunchThumbnail.png" id="4_u8hla"]
+[ext_resource type="Texture2D" uid="uid://c1fo1g5bve7vo" path="res://Assets/UI/StandardRacerThumbnail.png" id="5_tbwd8"]
+[ext_resource type="Texture2D" uid="uid://cllgcvhevdbkb" path="res://Assets/UI/LightRacerThumbnail.png" id="6_geava"]
+[ext_resource type="Texture2D" uid="uid://s6s11q7vcv6p" path="res://Assets/UI/HeavyRacerThumbnail.png" id="7_vwuc7"]
+
+[node name="MainMenu" type="Control" unique_id=1698697365]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_les83")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1450884573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1570806177]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=2072001447]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=308624466]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TrackMenu" type="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1979258439]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Infinitum"
+popup/item_0/icon = ExtResource("2_67d64")
+popup/item_0/id = 0
+popup/item_1/text = "The Drop"
+popup/item_1/icon = ExtResource("3_6swpd")
+popup/item_1/id = 1
+popup/item_2/text = "The Launch"
+popup/item_2/icon = ExtResource("4_u8hla")
+popup/item_2/id = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1442388437]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1481895021]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Vehicle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VehicleMenu" type="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=33013406]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Standard Racer"
+popup/item_0/icon = ExtResource("5_tbwd8")
+popup/item_0/id = 0
+popup/item_1/text = "Light Racer"
+popup/item_1/icon = ExtResource("6_geava")
+popup/item_1/id = 1
+popup/item_2/text = "Heavy Racer"
+popup/item_2/icon = ExtResource("7_vwuc7")
+popup/item_2/id = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=824675432]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=482853857]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModeMenu" type="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=787853551]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "Free Play"
+popup/item_0/id = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer" unique_id=1187865892]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="VBoxContainer/BoxContainer" unique_id=61311276]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 100
+text = "     RACE!     "
+
+[connection signal="pressed" from="VBoxContainer/BoxContainer/StartButton" to="." method="_on_start_button_pressed"]
