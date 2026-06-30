@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c60cmocmpb30l"]
 
-[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="1_7si0m"]
-[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="2_e04ae"]
+[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="1_2vqv7"]
+[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="2_xsmpf"]
 
 [node name="PathFollow3D" type="PathFollow3D" unique_id=844920027]
 rotation_mode = 0
@@ -19,8 +19,8 @@ path_rotation_accurate = false
 path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
-path_joined = true
-material = ExtResource("1_7si0m")
+path_joined = false
+material = ExtResource("1_2vqv7")
 
 [node name="RightRail" type="CSGPolygon3D" parent="." unique_id=1173767400]
 use_collision = true
@@ -35,8 +35,8 @@ path_rotation_accurate = false
 path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
-path_joined = true
-material = ExtResource("2_e04ae")
+path_joined = false
+material = ExtResource("2_xsmpf")
 
 [node name="LeftRail" type="CSGPolygon3D" parent="." unique_id=1946831399]
 use_collision = true
@@ -51,5 +51,5 @@ path_rotation_accurate = false
 path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
-path_joined = true
-material = ExtResource("2_e04ae")
+path_joined = false
+material = ExtResource("2_xsmpf")

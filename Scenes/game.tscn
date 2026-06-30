@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c41kx32qsu6ba"]
 
-[ext_resource type="PackedScene" uid="uid://du6uurnjppkvs" path="res://Scenes/Tracks/Track2.tscn" id="3_3dryh"]
-[ext_resource type="PackedScene" uid="uid://dmjrbpg4nstr8" path="res://Scenes/Racers/LightRacer.tscn" id="3_wowpa"]
+[ext_resource type="PackedScene" uid="uid://dcu2ptsnpfsho" path="res://Scenes/Tracks/Track3.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://u3js4h5i5rqj" path="res://Scenes/Racers/StandardRacer.tscn" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://cvvmmjwe2ct1s" path="res://Scenes/UI/PlayUI.tscn" id="3_wrm1d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qxrlw"]
@@ -28,7 +28,7 @@ shadow_enabled = true
 
 [node name="PlayUi" parent="." unique_id=622955533 instance=ExtResource("3_wrm1d")]
 
-[node name="Track2" parent="." unique_id=1835196388 instance=ExtResource("3_3dryh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8871503, 0)
+[node name="Track3" parent="." unique_id=692069322 instance=ExtResource("3_3dryh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.88733506, 0)
 
-[node name="LightRacer" parent="." unique_id=1511503172 instance=ExtResource("3_wowpa")]
+[node name="StandardRacer" parent="." unique_id=41189497 instance=ExtResource("3_wowpa")]

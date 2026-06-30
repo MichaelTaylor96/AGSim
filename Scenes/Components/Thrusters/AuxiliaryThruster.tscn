@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://crowxx2ojmket" path="res://Nodes/Components/Thruster.gd" id="1_3mt3m"]
 [ext_resource type="Material" uid="uid://dgjiw8udooecr" path="res://addons/prototype_mini_bundle/M_prototype_dark.tres" id="2_11ikf"]
-[ext_resource type="PackedScene" uid="uid://blg1e786r14ln" path="res://Scenes/Components/Visuals/BoostFlame.tscn" id="3_4a1us"]
-[ext_resource type="PackedScene" uid="uid://d0cyamf3qvofy" path="res://Scenes/Components/Visuals/ThrustFlame.tscn" id="4_002ce"]
+[ext_resource type="PackedScene" uid="uid://blg1e786r14ln" path="res://Scenes/Visuals/RacerVisuals/BoostFlame.tscn" id="3_4a1us"]
+[ext_resource type="PackedScene" uid="uid://d0cyamf3qvofy" path="res://Scenes/Visuals/RacerVisuals/ThrustFlame.tscn" id="4_002ce"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_in64s"]
 top_radius = 0.0

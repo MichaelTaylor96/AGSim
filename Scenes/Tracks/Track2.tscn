@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du6uurnjppkvs"]
 
-[ext_resource type="PackedScene" uid="uid://c60cmocmpb30l" path="res://Scenes/Tracks/Track_Components/StandardTrackPath.tscn" id="1_ppj81"]
+[ext_resource type="PackedScene" uid="uid://c60cmocmpb30l" path="res://Scenes/Tracks/TrackComponents/StandardTrackPath.tscn" id="1_ppj81"]
 
 [sub_resource type="Curve3D" id="Curve3D_8knr5"]
 closed = true

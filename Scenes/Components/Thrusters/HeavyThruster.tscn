@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://crowxx2ojmket" path="res://Nodes/Components/Thruster.gd" id="1_uhhtm"]
 [ext_resource type="Material" uid="uid://dgjiw8udooecr" path="res://addons/prototype_mini_bundle/M_prototype_dark.tres" id="2_ms5it"]
-[ext_resource type="PackedScene" uid="uid://blg1e786r14ln" path="res://Scenes/Components/Visuals/BoostFlame.tscn" id="3_7ireh"]
-[ext_resource type="PackedScene" uid="uid://d0cyamf3qvofy" path="res://Scenes/Components/Visuals/ThrustFlame.tscn" id="4_7xpoy"]
+[ext_resource type="PackedScene" uid="uid://blg1e786r14ln" path="res://Scenes/Visuals/RacerVisuals/BoostFlame.tscn" id="3_7ireh"]
+[ext_resource type="PackedScene" uid="uid://d0cyamf3qvofy" path="res://Scenes/Visuals/RacerVisuals/ThrustFlame.tscn" id="4_7xpoy"]
 
 [node name="HeavyThruster" type="Node3D" unique_id=803647051 node_paths=PackedStringArray("boost_flame", "thrust_flame")]
 script = ExtResource("1_uhhtm")
