@@ -8,7 +8,7 @@ size = Vector3(1.5, 0.5, 2.5)
 
 [node name="StarterChassis" type="Node3D" unique_id=862486162]
 script = ExtResource("1_s0wmj")
-air_brake = 30
+air_brake = 15
 mass = 500.0
 metadata/_custom_type_script = "uid://djaiplmgwg04k"
 

@@ -9,7 +9,7 @@ cross_area = 5.0
 drag_coefficient = 0.6
 yaw_speed = 2.8
 pitch_speed = 1.9
-air_brake = 80
+air_brake = 20
 mass = 700.0
 metadata/_custom_type_script = "uid://djaiplmgwg04k"
 

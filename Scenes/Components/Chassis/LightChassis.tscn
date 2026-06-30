@@ -52,7 +52,7 @@ drag_coefficient = 0.2
 yaw_speed = 4.0
 pitch_speed = 2.8
 roll_speed = 4.0
-air_brake = 10
+air_brake = 7
 mass = 300.0
 metadata/_custom_type_script = "uid://djaiplmgwg04k"
 

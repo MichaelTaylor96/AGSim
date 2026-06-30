@@ -12,8 +12,8 @@ height = 0.5
 
 [node name="LightThruster" type="Node3D" unique_id=457528942 node_paths=PackedStringArray("boost_flame", "thrust_flame")]
 script = ExtResource("1_o3t3y")
-max_thrust = 2000.0
-boost_modifier = 8000.0
+max_thrust = 4000.0
+boost_modifier = 10000.0
 boost_flame = NodePath("BoostFlame")
 thrust_flame = NodePath("StandardFlame")
 mass = 20.0

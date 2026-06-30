@@ -20,9 +20,6 @@ metadata/_custom_type_script = "uid://b50xy062xlcor"
 
 [node name="LightChassis" parent="." unique_id=790413878 instance=ExtResource("2_s21n6")]
 
-[node name="LightThruster" parent="." unique_id=457528942 instance=ExtResource("3_wuiln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.1)
-
 [node name="RepulsorArray" type="Node3D" parent="." unique_id=1353970690 node_paths=PackedStringArray("items")]
 script = ExtResource("4_elj5d")
 items = [NodePath("SoftRepulsor"), NodePath("SoftRepulsor2"), NodePath("SoftRepulsor3")]
@@ -42,3 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009765625, 0.14463806, 0.11
 shape = SubResource("BoxShape3D_r2g3e")
 
 [node name="CameraPivot" parent="." unique_id=940932064 instance=ExtResource("6_wuiln")]
+
+[node name="LightThruster" parent="." unique_id=457528942 instance=ExtResource("3_wuiln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12427822, 1.1441296)
