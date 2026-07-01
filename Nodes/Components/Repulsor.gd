@@ -7,7 +7,7 @@ class_name Repulsor
 @export var max_distance : float
 @export var max_force : float
 var force : Vector3 = Vector3(0,0,0)
-var force_scaling : float
+var force_scaling : float = 1000
 var force_position : Vector3 = Vector3(0,0,0)
 
 

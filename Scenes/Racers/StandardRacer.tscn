@@ -5,15 +5,38 @@
 [ext_resource type="PackedScene" uid="uid://baf6l75hpa6vv" path="res://Scenes/Components/Chassis/StarterChassis.tscn" id="2_xbeba"]
 [ext_resource type="PackedScene" uid="uid://ddjsp8evwwain" path="res://Scenes/Components/Repulsors/StarterRepulsors.tscn" id="4_xbeba"]
 [ext_resource type="PackedScene" uid="uid://se0spiol5uy" path="res://Scenes/Components/Thrusters/StarterThruster.tscn" id="6_2nxyu"]
-[ext_resource type="Script" uid="uid://b2k8p4abgffyx" path="res://Nodes/Components/RepulsarArray.gd" id="7_3dl45"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vd1yw"]
 size = Vector3(1.3832397, 0.4267578, 2.432251)
 
+[sub_resource type="GDScript" id="GDScript_y4xtg"]
+script/source = "extends Node3D
+class_name RepulsorArray
+
+const REPULSOR_SCALE := 1000
+@export var items : Array[Repulsor]
+var mass : float
+
+func _ready() -> void:
+	for repulsor : Repulsor in items:
+		repulsor.force_scaling = REPULSOR_SCALE
+		mass += repulsor.mass
+		
+func get_forces(linear_velocity:Vector3, angular_velocity:Vector3, racer_position:Vector3) -> Array[Dictionary]:
+	var accumulator : Array[Dictionary] = []
+	for repulsor in items:
+		repulsor.update_force(linear_velocity, angular_velocity, racer_position)
+		accumulator.append({
+			\"force\": repulsor.force,
+			\"position\": repulsor.force_position
+		})
+	return accumulator
+"
+
 [node name="StandardRacer" type="RigidBody3D" unique_id=41189497 node_paths=PackedStringArray("repulsors", "thrusters", "chassis")]
 angular_damp = 1.25
 script = ExtResource("1_y4xtg")
-repulsors = NodePath("RepulsorArray")
+repulsors = [NodePath("RepulsorArray/StarterRepulsor"), NodePath("RepulsorArray/StarterRepulsor2"), NodePath("RepulsorArray/StarterRepulsor3"), NodePath("RepulsorArray/StarterRepulsor4")]
 thrusters = [NodePath("StarterThruster")]
 chassis = NodePath("StarterChassis")
 metadata/_custom_type_script = "uid://b50xy062xlcor"
@@ -31,9 +54,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3)
 rotation_edit_mode = 2
 
 [node name="RepulsorArray" type="Node3D" parent="." unique_id=248067906 node_paths=PackedStringArray("items")]
-script = ExtResource("7_3dl45")
+script = SubResource("GDScript_y4xtg")
 items = [NodePath("StarterRepulsor"), NodePath("StarterRepulsor2"), NodePath("StarterRepulsor3"), NodePath("StarterRepulsor4")]
-metadata/_custom_type_script = "uid://b2k8p4abgffyx"
 
 [node name="StarterRepulsor" parent="RepulsorArray" unique_id=2005247763 instance=ExtResource("4_xbeba")]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.6015769, 0, 0, 0, 1.0000001, 0.6, -0.25, 1)

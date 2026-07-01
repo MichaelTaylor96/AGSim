@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://1duw2rwt85ru" path="res://Scenes/Components/Chassis/HeavyChassis.tscn" id="3_mgd5u"]
 [ext_resource type="PackedScene" uid="uid://d1rlfayb6ec1b" path="res://Scenes/Components/Thrusters/HeavyThruster.tscn" id="4_61adi"]
 [ext_resource type="PackedScene" uid="uid://sm02f4y0cvpo" path="res://Scenes/Components/Thrusters/AuxiliaryThruster.tscn" id="5_xfnf5"]
-[ext_resource type="Script" uid="uid://b2k8p4abgffyx" path="res://Nodes/Components/RepulsarArray.gd" id="6_jrvjr"]
 [ext_resource type="PackedScene" uid="uid://bx1sfcibngsmb" path="res://Scenes/Components/Repulsors/StrongRepulsor.tscn" id="7_31287"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2mbsc"]
@@ -14,7 +13,7 @@ size = Vector3(2.1839447, 0.6944275, 2.9316406)
 [node name="HeavyRacer" type="RigidBody3D" unique_id=1002784777 node_paths=PackedStringArray("repulsors", "thrusters", "chassis")]
 angular_damp = 1.5
 script = ExtResource("1_jbly5")
-repulsors = NodePath("RepulsorArray")
+repulsors = [NodePath("RepulsorArray/StrongRepulsor"), NodePath("RepulsorArray/StrongRepulsor2"), NodePath("RepulsorArray/StrongRepulsor3"), NodePath("RepulsorArray/StrongRepulsor4"), NodePath("RepulsorArray/StrongRepulsor5")]
 thrusters = [NodePath("Thrusters/HeavyThruster")]
 chassis = NodePath("HeavyChassis")
 metadata/_custom_type_script = "uid://b50xy062xlcor"
@@ -37,10 +36,7 @@ rotation_edit_mode = 2
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.878, 0.063, -1)
 rotation_edit_mode = 2
 
-[node name="RepulsorArray" type="Node3D" parent="." unique_id=1756768370 node_paths=PackedStringArray("items")]
-script = ExtResource("6_jrvjr")
-items = [NodePath("StrongRepulsor"), NodePath("StrongRepulsor2"), NodePath("StrongRepulsor3"), NodePath("StrongRepulsor4"), NodePath("StrongRepulsor5")]
-metadata/_custom_type_script = "uid://b2k8p4abgffyx"
+[node name="RepulsorArray" type="Node3D" parent="." unique_id=1756768370]
 
 [node name="StrongRepulsor" parent="RepulsorArray" unique_id=676188116 instance=ExtResource("7_31287")]
 transform = Transform3D(0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 0, 0, 1, -1.15, -0.35, 1.2)

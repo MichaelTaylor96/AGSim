@@ -143,6 +143,7 @@ theme_override_font_sizes/font_size = 60
 text = "  Back  "
 
 [connection signal="pressed" from="TopLevel/VBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="TopLevel/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="TopLevel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="item_selected" from="EditMenu/ChassisOptions" to="." method="_on_chassis_options_item_selected"]
 [connection signal="item_selected" from="EditMenu/RepulsorOptions" to="." method="_on_repulsor_options_item_selected"]

@@ -8,6 +8,7 @@
 script = ExtResource("1_2e6e3")
 
 [node name="GarageMenu" parent="." unique_id=1857073124 instance=ExtResource("2_tpqrq")]
+unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=615201974]
 transform = Transform3D(-0.64278764, 0.23544884, -0.7289636, 0, 0.9515944, 0.30735663, 0.76604444, 0.19756503, -0.6116731, -4, 1.4032922, -5)

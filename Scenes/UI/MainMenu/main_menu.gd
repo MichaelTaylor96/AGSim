@@ -8,7 +8,8 @@ const TRACKS = [INFINITUM, THE_DROP, THE_LAUNCH]
 const STANDARD_RACER = "res://Scenes/Racers/StandardRacer.tscn"
 const LIGHT_RACER = "res://Scenes/Racers/LightRacer.tscn"
 const HEAVY_RACER = "res://Scenes/Racers/HeavyRacer.tscn"
-const RACERS = [STANDARD_RACER, LIGHT_RACER, HEAVY_RACER]
+const CUSTOM_RACER = Globals.RACERS_FOLDER + "custom_build.tres"
+const RACERS = [STANDARD_RACER, LIGHT_RACER, HEAVY_RACER, CUSTOM_RACER]
 
 @onready var top_menu := $HBoxContainer2/TopLevel
 @onready var race_menu := $HBoxContainer2/RaceMenu
@@ -17,6 +18,7 @@ const RACERS = [STANDARD_RACER, LIGHT_RACER, HEAVY_RACER]
 
 
 func _ready() -> void:
+	vehicle_menu.add_item("Custom", 3)
 	focus()
 
 

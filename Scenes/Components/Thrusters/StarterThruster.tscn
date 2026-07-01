@@ -23,8 +23,7 @@ mesh = SubResource("PrismMesh_r77wp")
 
 [node name="BoostFlame" parent="." unique_id=528306677 instance=ExtResource("3_r77wp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.759)
-visible = false
 
 [node name="StandardFlame" parent="." unique_id=1114378593 instance=ExtResource("4_hfihs")]
-transform = Transform3D(5.7611136e-16, 1.3179891e-08, 0.30152076, 0.30152076, -1.3179893e-08, 0, 1.3179893e-08, 0.30152076, -1.3179891e-08, 0, 0, 0.568)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0.30283356)
+emitting = false

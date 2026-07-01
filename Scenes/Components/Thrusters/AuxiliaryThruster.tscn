@@ -30,9 +30,9 @@ operation = 2
 size = Vector3(0.50579834, 0.5482788, 0.2541504)
 
 [node name="BoostFlame" parent="." unique_id=528306677 instance=ExtResource("3_4a1us")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.10645154, 0.40625268)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.07232463, 0.5775007)
 visible = false
 
 [node name="StandardFlame" parent="." unique_id=1114378593 instance=ExtResource("4_002ce")]
-transform = Transform3D(0.15, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0.11297986, 0.366299)
-visible = false
+transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, 0.7, 0, -0.7, -3.059797e-08, 0, 0.06485663, 0.261356)
+emitting = false

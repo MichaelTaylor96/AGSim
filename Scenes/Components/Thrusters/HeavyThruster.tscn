@@ -36,5 +36,5 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 1.0606279)
 visible = false
 
 [node name="StandardFlame" parent="." unique_id=1114378593 instance=ExtResource("4_7xpoy")]
-transform = Transform3D(0.6, 0, 0, 0, -2.6226834e-08, 0.6, 0, -0.6, -2.6226834e-08, 0, 0, 0.9737535)
-visible = false
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, 1.5, 0, -1.5, -6.556708e-08, 0, 0, 0.49185395)
+emitting = false

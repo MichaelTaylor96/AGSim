@@ -1,10 +1,9 @@
 extends RigidBody3D
 class_name Racer
 
-
 const CAMERA_SPEED = 5
 
-@export var repulsors : RepulsorArray
+@export var repulsors : Array[Repulsor]
 @export var thrusters : Array[Thruster]
 @export var chassis : Chassis
 
@@ -18,9 +17,25 @@ var look_at_point
 var reset_flag = false
 
 
+func build_from_resource(resource:RacerResource):
+	chassis = resource.chassis.instantiate()
+	repulsors = chassis.populate_repulsors(resource.repulsor)
+	thrusters = chassis.populate_thrusters(resource.thruster)
+	if resource.auxiliary_thrusters != null:
+		thrusters.append_array(chassis.populate_auxiliary_thrusters(resource.auxiliary_thrusters))
+	angular_damp = chassis.angular_damp
+	add_child(chassis)
+
+	var collision_shape = load(chassis.collision_shape).instantiate()
+	add_child(collision_shape)
+
+	camera_pivot = load("res://Scenes/Components/camera.tscn").instantiate()
+	add_child(camera_pivot)
+
+
 func _ready() -> void:
 	components.append_array(thrusters)
-	components.append_array(repulsors.items)
+	components.append_array(repulsors)
 	components.append(chassis)
 	mass = components.reduce(func(sum, component): return sum + component.mass, 0.0)
 	look_at_point = global_position
@@ -31,10 +46,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	for force in repulsors.get_forces(linear_velocity, angular_velocity, global_position):
+	for repulsor in repulsors:
+		repulsor.update_force(linear_velocity, angular_velocity, global_position)
 		#var force_origin := repulsor.force_position + global_position
 		#DebugDraw3D.draw_arrow(force_origin, force_origin + repulsor.force/1000)
-		apply_force(force['force'], force['position'])
+		apply_force(repulsor.force, repulsor.force_position)
 
 	var thrust_force = Vector3()
 	for thruster in thrusters:
