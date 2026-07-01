@@ -29,5 +29,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7237364)
 visible = false
 
 [node name="StandardFlame" parent="." unique_id=1114378593 instance=ExtResource("4_vncya")]
-transform = Transform3D(0.30152076, 0, 0, 0, -1.3179891e-08, 0.30152076, 0, -0.30152076, -1.3179891e-08, 0, 0, 0.5197766)
-visible = false
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, 0.8, 0, -0.8, -3.4969112e-08, 0, 0, 0.25488985)
+emitting = false

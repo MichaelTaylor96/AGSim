@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dh7qyjmnjvp8k"]
+
+[ext_resource type="Script" uid="uid://detxytjfmqrej" path="res://Scenes/UI/Garage/garage.gd" id="1_2e6e3"]
+[ext_resource type="PackedScene" uid="uid://df1oyogurnlsm" path="res://Scenes/UI/Garage/GarageMenu.tscn" id="2_tpqrq"]
+[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="3_tpqrq"]
+
+[node name="Garage" type="Node3D" unique_id=123760031]
+script = ExtResource("1_2e6e3")
+
+[node name="GarageMenu" parent="." unique_id=1857073124 instance=ExtResource("2_tpqrq")]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=615201974]
+transform = Transform3D(-0.64278764, 0.23544884, -0.7289636, 0, 0.9515944, 0.30735663, 0.76604444, 0.19756503, -0.6116731, -4, 1.4032922, -5)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=776933476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.029902, 0)
+radius = 3.0
+height = 5.0
+sides = 30
+material = ExtResource("3_tpqrq")

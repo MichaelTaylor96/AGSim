@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c41kx32qsu6ba"]
 
 [ext_resource type="Script" uid="uid://br16js4seox58" path="res://Scenes/game.gd" id="1_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://cvvmmjwe2ct1s" path="res://Scenes/UI/HUD/PlayUI.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dh7qyjmnjvp8k" path="res://Scenes/UI/Garage/Garage.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c6bwc5wrceikd" path="res://Scenes/UI/MainMenu/MainMenu.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://lpx8u7g27hqs" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="4_wowpa"]
 
@@ -21,12 +21,6 @@ glow_enabled = true
 [node name="Game" type="Node3D" unique_id=22841451]
 script = ExtResource("1_wrm1d")
 
-[node name="PlayUi" parent="." unique_id=622955533 instance=ExtResource("3_wrm1d")]
-
-[node name="MainMenu" parent="." unique_id=1698697365 instance=ExtResource("4_3dryh")]
-
-[node name="PauseMenu" parent="." unique_id=2068900795 instance=ExtResource("4_wowpa")]
-
 [node name="World" type="Node3D" parent="." unique_id=2123953643]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=842288904]
@@ -35,3 +29,10 @@ environment = SubResource("Environment_3dryh")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1566773092]
 transform = Transform3D(-0.51342154, 0.7431681, -0.4290682, 4.1086917e-08, 0.49999994, 0.86602545, 0.85813653, 0.44463608, -0.2567108, -1249.7738, 100.045815, -2020.0221)
 shadow_enabled = true
+
+[node name="Garage" parent="." unique_id=123760031 instance=ExtResource("2_qxrlw")]
+visible = false
+
+[node name="MainMenu" parent="." unique_id=1698697365 instance=ExtResource("4_3dryh")]
+
+[node name="PauseMenu" parent="." unique_id=2068900795 instance=ExtResource("4_wowpa")]

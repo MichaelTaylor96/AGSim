@@ -1,10 +1,33 @@
 [gd_scene format=3 uid="uid://d0cyamf3qvofy"]
 
-[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="1_2cgx3"]
+[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="1_dvu7m"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_hmv06"]
+[sub_resource type="Curve" id="Curve_dvu7m"]
+_data = [Vector2(0, 1), 0.0, -0.59868, 0, 0, Vector2(1, 0.61116654), -0.21552469, 0.0718418, 0, 0]
+point_count = 2
 
-[node name="StandardFlame" type="MeshInstance3D" unique_id=1114378593]
-transform = Transform3D(0.30152076, 0, 0, 0, -1.3179891e-08, 0.30152076, 0, -0.30152076, -1.3179891e-08, 0, 0, 0)
-material_override = ExtResource("1_2cgx3")
-mesh = SubResource("CapsuleMesh_hmv06")
+[sub_resource type="CurveTexture" id="CurveTexture_r5avv"]
+curve = SubResource("Curve_dvu7m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mn1ir"]
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+damping_min = 2.0
+damping_max = 2.0
+scale_curve = SubResource("CurveTexture_r5avv")
+
+[sub_resource type="TorusMesh" id="TorusMesh_lp7u2"]
+material = ExtResource("1_dvu7m")
+inner_radius = 0.2
+outer_radius = 0.25
+
+[node name="GPUParticles3D" type="GPUParticles3D" unique_id=33953916]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+amount = 4
+lifetime = 0.41000000000000003
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_mn1ir")
+draw_pass_1 = SubResource("TorusMesh_lp7u2")

@@ -3,25 +3,44 @@
 [ext_resource type="Material" uid="uid://1nvrnylcajfg" path="res://addons/prototype_mini_bundle/M_prototype_red.tres" id="1_qp3qb"]
 [ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="2_ga8ql"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_nt70k"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_mes53"]
+top_radius = 0.0
+bottom_radius = 0.3
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_h7oj1"]
+[sub_resource type="Curve" id="Curve_mes53"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_s06ay"]
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_fgm3b"]
+shape = 0
+size = 0.2
+sections = 2
+section_length = 1.0
+curve = SubResource("Curve_mes53")
 
 [node name="BoostFlame" type="Node3D" unique_id=528306677]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=74271228]
 transform = Transform3D(9.214934e-16, 2.1081311e-08, 0.4822842, 0.4822842, -2.1081313e-08, 0, 2.1081313e-08, 0.4822842, -2.1081311e-08, 0, 0, 0)
 material_override = ExtResource("1_qp3qb")
-mesh = SubResource("CapsuleMesh_nt70k")
+mesh = SubResource("CylinderMesh_mes53")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1207279020]
-transform = Transform3D(1.361902e-15, 2.2036202e-08, 0.547075, 0.2492774, -2.2036204e-08, 0, 1.0896262e-08, 0.5041295, -2.3913406e-08, 0, 0, 0)
+transform = Transform3D(-1.9406023e-09, -0.089784496, 0.5383287, 0.2492774, -2.2036206e-08, 5.406734e-23, 1.072206e-08, 0.49606988, 0.097433, 0.19443488, 0, 0.0938317)
 material_override = ExtResource("2_ga8ql")
-mesh = SubResource("CapsuleMesh_h7oj1")
+mesh = SubResource("RibbonTrailMesh_fgm3b")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1719059754]
-transform = Transform3D(1.1056615e-15, 2.1205658e-08, 0.22081755, 0.5786727, -2.120566e-08, 0, 2.5294588e-08, 0.4851289, -9.652242e-09, 0, 0, 0)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1042903164]
+transform = Transform3D(-0.24927738, 3.3352823e-08, -2.2079224e-08, -1.2836862e-08, -0.08978449, 0.5383285, 1.0722059e-08, 0.49606985, 0.09743296, 0, 0.194, 0.094)
 material_override = ExtResource("2_ga8ql")
-mesh = SubResource("CapsuleMesh_s06ay")
+mesh = SubResource("RibbonTrailMesh_fgm3b")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=591887233]
+transform = Transform3D(-2.2351742e-08, 0.08978448, -0.53832865, -0.24927735, 1.4322127e-08, 5.985676e-08, 1.1367079e-08, 0.49606985, 0.097433, -0.194, 0, 0.094)
+material_override = ExtResource("2_ga8ql")
+mesh = SubResource("RibbonTrailMesh_fgm3b")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=143428370]
+transform = Transform3D(0.24927738, -1.81116e-08, -2.3531094e-08, -8.9556575e-09, 0.08978449, -0.53832865, 1.072206e-08, 0.49606988, 0.097433, 0, -0.194, 0.094)
+material_override = ExtResource("2_ga8ql")
+mesh = SubResource("RibbonTrailMesh_fgm3b")
