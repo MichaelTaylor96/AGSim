@@ -110,14 +110,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 60
 alignment = 1
-selected = 0
-item_count = 3
-popup/item_0/text = "Standard Racer"
-popup/item_0/id = 0
-popup/item_1/text = "Light Racer"
-popup/item_1/id = 1
-popup/item_2/text = "Heavy Racer"
-popup/item_2/id = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer2/RaceMenu" unique_id=824675432]
 layout_mode = 2

@@ -5,11 +5,12 @@
 
 [node name="HeavyChassis" type="Node3D" unique_id=418172384]
 script = ExtResource("1_fbn48")
-cross_area = 5.0
-drag_coefficient = 0.6
+base_area = 8.0
+base_drag = 0.8
 yaw_speed = 2.8
 pitch_speed = 1.9
-air_brake = 20
+air_brake_area_mod = 2
+air_brake_drag_mod = 0.3
 collision_shape = "uid://b6ueyo1u7k5ge"
 angular_damp = 1.5
 auxiliary_thruster_mounts = Array[Transform3D]([Transform3D(0.707, 0.707, 0, -0.707, 0.707, 0, 0, 0, 1, 0.878, 0.063, -1), Transform3D(0.707, -0.707, 0, 0.707, 0.707, 0, 0, 0, 1, -0.878, 0.063, -1)])

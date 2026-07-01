@@ -94,7 +94,8 @@ func _on_auxiliary_select(aux_id:int):
 	chassis.populate_auxiliary_thrusters(aux_thrust_options[aux_id])
 	
 	
-func _on_save_build():
+func _on_save_build(build_name:String):
 	if not DirAccess.dir_exists_absolute(Globals.RACERS_FOLDER):
 		DirAccess.make_dir_absolute(Globals.RACERS_FOLDER)
-	ResourceSaver.save(resource, Globals.RACERS_FOLDER + "custom_build.tres")
+	resource.display_name = build_name
+	ResourceSaver.save(resource, Globals.RACERS_FOLDER + build_name + ".tres")

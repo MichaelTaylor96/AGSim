@@ -26,14 +26,11 @@ func _process(delta: float) -> void:
 func _start_race(track_path:String, racer_path:String, _mode:String) -> void:
 	var track_resource := load(track_path)
 	var track_node = track_resource.instantiate()
+	print(racer_path)
 	var racer_resource := load(racer_path)
 	var racer_node : Node
-	if racer_path.ends_with(".tres"):
-		racer_node = Racer.new()
-		print(racer_resource)
-		racer_node.build_from_resource(racer_resource)
-	else:
-		racer_node = racer_resource.instantiate()
+	racer_node = Racer.new()
+	racer_node.build_from_resource(racer_resource)
 	
 	current_track = track_node
 	racer = racer_node

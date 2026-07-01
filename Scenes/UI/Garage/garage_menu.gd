@@ -4,6 +4,7 @@ extends Control
 @onready var thruster_options := $EditMenu/ThrusterOptions
 @onready var aux_options := $EditMenu/AuxOptions
 @onready var chassis_options := $EditMenu/ChassisOptions
+@onready var build_name := $EditMenu/BuildName
 @onready var non_chassis_comps : Array[OptionButton] = [
 	$EditMenu/RepulsorOptions,
 	$EditMenu/ThrusterOptions,
@@ -77,4 +78,4 @@ func _on_main_menu_pressed() -> void:
 
 
 func _on_save_button_pressed() -> void:
-	EventBus.garage_save_build.emit()
+	EventBus.garage_save_build.emit(build_name.text)

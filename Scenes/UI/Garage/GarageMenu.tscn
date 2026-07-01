@@ -33,13 +33,21 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 60
 text = "  Edit  "
 
-[node name="SaveButton" type="Button" parent="TopLevel/VBoxContainer" unique_id=1891797006]
+[node name="SaveButton" type="Button" parent="TopLevel/VBoxContainer" unique_id=1027102112]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 60
 text = "  Save  "
+
+[node name="LoadButton" type="Button" parent="TopLevel/VBoxContainer" unique_id=617684829]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+text = "  Load  "
 
 [node name="MainMenu" type="Button" parent="TopLevel/VBoxContainer" unique_id=1018448243]
 layout_mode = 2
@@ -57,9 +65,18 @@ anchor_bottom = 1.0
 offset_right = 599.0
 grow_vertical = 2
 
+[node name="BuildName" type="LineEdit" parent="EditMenu" unique_id=801641416]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 60
+placeholder_text = "Name your build"
+alignment = 1
+
 [node name="ChassisLabel" type="Label" parent="EditMenu" unique_id=217967296]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 60
 text = "Chassis"
 horizontal_alignment = 1

@@ -1,12 +1,13 @@
 extends Component
 class_name Chassis
 
-@export var cross_area := 2.5
-@export var drag_coefficient := 0.4
+@export var base_area := 2.5
+@export var base_drag := 0.4
 @export var yaw_speed := 3.0
 @export var pitch_speed := 2.0
 @export var roll_speed := 2.0
-@export var air_brake := 50
+@export var air_brake_area_mod := 1
+@export var air_brake_drag_mod := 0.4
 @export var collision_shape : String
 @export var angular_damp : float
 @export var auxiliary_thruster_mounts : Array[Transform3D]
@@ -14,6 +15,8 @@ class_name Chassis
 @export var repulsor_mounts : Array[Transform3D]
 
 
+@onready var drag_coefficient := base_drag
+@onready var cross_area := base_area
 var drag_modifier := 0.0
 var roll := 0.0
 var pitch := 0.0
@@ -22,8 +25,10 @@ var yaw := 0.0
 
 func _process(_delta: float) -> void:
 	var air_brake_val = Input.get_action_strength("air_brake")
-	drag_modifier = drag_coefficient * cross_area * (1.225/2) * air_brake * air_brake_val
-		
+	drag_coefficient = base_drag + (air_brake_val * air_brake_drag_mod)
+	cross_area = base_area + (air_brake_val * air_brake_area_mod)
+	drag_modifier = (1.225/2) * drag_coefficient * cross_area
+
 	yaw = Input.get_axis("steer_right", "steer_left") * yaw_speed
 	pitch = Input.get_axis("pitch_down", "pitch_up") * pitch_speed
 	roll = Input.get_axis("roll_right", "roll_left") * roll_speed

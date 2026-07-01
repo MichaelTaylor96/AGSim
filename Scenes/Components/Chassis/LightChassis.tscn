@@ -47,12 +47,12 @@ material_slots = Array[Material]([ExtResource("3_q3oxd")])
 
 [node name="LightChassis" type="Node3D" unique_id=790413878]
 script = ExtResource("1_8wpmh")
-cross_area = 1.5
-drag_coefficient = 0.2
+base_area = 1.5
+base_drag = 0.1
 yaw_speed = 4.0
 pitch_speed = 2.8
 roll_speed = 4.0
-air_brake = 7
+air_brake_drag_mod = 0.6
 collision_shape = "uid://by2ijia6h2tk2"
 angular_damp = 1.0
 thruster_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 1.15)])
