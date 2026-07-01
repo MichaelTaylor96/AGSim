@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://df1oyogurnlsm"]
+
+[ext_resource type="Script" uid="uid://bft11eyoipsvx" path="res://Scenes/UI/Garage/garage_menu.gd" id="1_0jhi7"]
+
+[node name="GarageMenu" type="Control" unique_id=1857073124]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0jhi7")
+
+[node name="TopLevel" type="VBoxContainer" parent="." unique_id=1639076029]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.15585938
+anchor_bottom = 1.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopLevel" unique_id=1435008471]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="EditButton" type="Button" parent="TopLevel/VBoxContainer" unique_id=1833737944]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+text = "  Edit  "
+
+[node name="SaveButton" type="Button" parent="TopLevel/VBoxContainer" unique_id=1891797006]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+text = "  Save  "
+
+[node name="MainMenu" type="Button" parent="TopLevel/VBoxContainer" unique_id=1018448243]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+text = "  Main Menu  "
+
+[node name="EditMenu" type="VBoxContainer" parent="." unique_id=12484978]
+visible = false
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 599.0
+grow_vertical = 2
+
+[node name="ChassisLabel" type="Label" parent="EditMenu" unique_id=217967296]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Chassis"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ChassisOptions" type="OptionButton" parent="EditMenu" unique_id=1442550261]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+alignment = 1
+item_count = 3
+popup/item_0/text = "Standard Chassis"
+popup/item_0/id = 0
+popup/item_1/text = "Light Chassis"
+popup/item_1/id = 1
+popup/item_2/text = "Heavy Chassis"
+popup/item_2/id = 2
+
+[node name="RepulsorLabel" type="Label" parent="EditMenu" unique_id=801679183]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Repulsors"
+horizontal_alignment = 1
+
+[node name="RepulsorOptions" type="OptionButton" parent="EditMenu" unique_id=1555386012]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+disabled = true
+alignment = 1
+item_count = 3
+popup/item_0/text = "Standard Repulsors"
+popup/item_0/id = 0
+popup/item_1/text = "Soft Repulsors"
+popup/item_1/id = 1
+popup/item_2/text = "Strong Repulsors"
+popup/item_2/id = 2
+
+[node name="ThrusterLabel" type="Label" parent="EditMenu" unique_id=1533017218]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Thrusters"
+horizontal_alignment = 1
+
+[node name="ThrusterOptions" type="OptionButton" parent="EditMenu" unique_id=142235258]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+disabled = true
+alignment = 1
+item_count = 3
+popup/item_0/text = "Standard Thruster"
+popup/item_0/id = 0
+popup/item_1/text = "Light Thruster"
+popup/item_1/id = 1
+popup/item_2/text = "Heavy Thruster"
+popup/item_2/id = 2
+
+[node name="AuxLabel" type="Label" parent="EditMenu" unique_id=1231332674]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Aux Thrusters"
+horizontal_alignment = 1
+
+[node name="AuxOptions" type="OptionButton" parent="EditMenu" unique_id=626344704]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 60
+disabled = true
+alignment = 1
+item_count = 1
+popup/item_0/text = "Auxiliary Thruster"
+popup/item_0/id = 0
+
+[node name="EditBackButton" type="Button" parent="EditMenu" unique_id=1892791308]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+text = "  Back  "
+
+[connection signal="pressed" from="TopLevel/VBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="TopLevel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="item_selected" from="EditMenu/ChassisOptions" to="." method="_on_chassis_options_item_selected"]
+[connection signal="item_selected" from="EditMenu/RepulsorOptions" to="." method="_on_repulsor_options_item_selected"]
+[connection signal="item_selected" from="EditMenu/ThrusterOptions" to="." method="_on_thruster_options_item_selected"]
+[connection signal="item_selected" from="EditMenu/AuxOptions" to="." method="_on_aux_options_item_selected"]
+[connection signal="pressed" from="EditMenu/EditBackButton" to="." method="_on_edit_back_button_pressed"]

@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var main_menu = $MainMenu
 @onready var pause_menu = $PauseMenu
+@onready var garage = $Garage
 var current_track
 var racer
 
@@ -10,6 +11,7 @@ func _ready() -> void:
 	EventBus.main_menu.connect(_open_main_menu)
 	EventBus.resume.connect(_resume_play)
 	EventBus.restart.connect(_restart_race)
+	EventBus.garage_menu.connect(_go_to_garage)
 
 
 func _process(delta: float) -> void:
@@ -36,11 +38,12 @@ func _start_race(track_path:String, racer_path:String, mode:String) -> void:
 
 
 func _open_main_menu():
-	current_track.queue_free()
-	racer.queue_free()
+	if current_track != null: current_track.queue_free()
+	if racer != null: racer.queue_free()
 	main_menu.visible = true
 	main_menu.focus()
 	pause_menu.visible = false
+	garage.exit()
 	get_tree().paused = false
 
 
@@ -52,3 +55,8 @@ func _resume_play():
 func _restart_race():
 	_resume_play()
 	racer.reset_flag = true
+
+
+func _go_to_garage():
+	main_menu.hide()
+	garage.enter()

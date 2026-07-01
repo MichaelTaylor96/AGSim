@@ -7,6 +7,10 @@ class_name Chassis
 @export var pitch_speed := 2.0
 @export var roll_speed := 2.0
 @export var air_brake := 50
+@export var auxiliary_thruster_mounts : Array[Transform3D]
+@export var thruster_mounts : Array[Transform3D]
+@export var repulsor_mounts : Array[Transform3D]
+
 
 var drag_modifier := 0.0
 var roll := 0.0

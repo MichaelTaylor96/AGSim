@@ -27,12 +27,15 @@ metadata/_custom_type_script = "uid://b2k8p4abgffyx"
 
 [node name="SoftRepulsor" parent="RepulsorArray" unique_id=51025154 instance=ExtResource("5_l44tl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+rotation_edit_mode = 2
 
 [node name="SoftRepulsor2" parent="RepulsorArray" unique_id=448441011 instance=ExtResource("5_l44tl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0.7)
+rotation_edit_mode = 2
 
 [node name="SoftRepulsor3" parent="RepulsorArray" unique_id=1836273500 instance=ExtResource("5_l44tl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.7)
+rotation_edit_mode = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=358415013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009765625, 0.14463806, 0.11282349)
@@ -41,4 +44,5 @@ shape = SubResource("BoxShape3D_r2g3e")
 [node name="CameraPivot" parent="." unique_id=940932064 instance=ExtResource("6_wuiln")]
 
 [node name="LightThruster" parent="." unique_id=457528942 instance=ExtResource("3_wuiln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12427822, 1.1441296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 1.15)
+rotation_edit_mode = 2

@@ -1,14 +1,17 @@
 extends RigidBody3D
 class_name Racer
 
+
+const CAMERA_SPEED = 5
+
 @export var repulsors : RepulsorArray
 @export var thrusters : Array[Thruster]
 @export var chassis : Chassis
 
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera3D
+
 var components : Array[Component]
-const CAMERA_SPEED = 5
 var camera_tracking = true
 var debug_enabled = true
 var look_at_point
