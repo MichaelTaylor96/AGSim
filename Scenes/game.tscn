@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dh7qyjmnjvp8k" path="res://Scenes/UI/Garage/Garage.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c6bwc5wrceikd" path="res://Scenes/UI/MainMenu/MainMenu.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://lpx8u7g27hqs" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="4_wowpa"]
+[ext_resource type="PackedScene" uid="uid://cvvmmjwe2ct1s" path="res://Scenes/UI/HUD/PlayUI.tscn" id="5_wowpa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qxrlw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,3 +37,5 @@ visible = false
 [node name="MainMenu" parent="." unique_id=1698697365 instance=ExtResource("4_3dryh")]
 
 [node name="PauseMenu" parent="." unique_id=2068900795 instance=ExtResource("4_wowpa")]
+
+[node name="PlayUi" parent="." unique_id=622955533 instance=ExtResource("5_wowpa")]

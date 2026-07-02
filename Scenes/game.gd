@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var main_menu = $MainMenu
 @onready var pause_menu = $PauseMenu
+@onready var play_ui = $PlayUi
 @onready var garage = $Garage
 var current_track
 var racer
@@ -26,7 +27,6 @@ func _process(delta: float) -> void:
 func _start_race(track_path:String, racer_path:String, _mode:String) -> void:
 	var track_resource := load(track_path)
 	var track_node = track_resource.instantiate()
-	print(racer_path)
 	var racer_resource := load(racer_path)
 	var racer_node : Node
 	racer_node = Racer.new()
@@ -37,7 +37,8 @@ func _start_race(track_path:String, racer_path:String, _mode:String) -> void:
 	add_child(track_node)
 	track_node.position.y -= 1
 	add_child(racer_node)
-	main_menu.visible = false
+	main_menu.hide()
+	play_ui.show()
 
 
 func _open_main_menu():
@@ -45,8 +46,10 @@ func _open_main_menu():
 	if racer != null: racer.queue_free()
 	main_menu.visible = true
 	main_menu.focus()
-	pause_menu.visible = false
+	
+	pause_menu.hide()
 	garage.exit()
+	play_ui.hide()
 	get_tree().paused = false
 
 

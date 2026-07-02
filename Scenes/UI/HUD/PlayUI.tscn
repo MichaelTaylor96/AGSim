@@ -21,40 +21,34 @@ texture = ExtResource("3_xqj6d")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55q2h"]
 texture = ExtResource("4_vae7o")
 
-[node name="PlayUi" type="Node" unique_id=622955533]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=940014704]
+[node name="Control" type="Control" unique_id=281410315]
 visible = false
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=281410315]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=899955650]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=899955650]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 44.475
+anchor_left = 42.525
 anchor_top = 27.875
-anchor_right = 60.975
-anchor_bottom = 33.525
-offset_right = 257.0
-offset_bottom = 39.0
+anchor_right = 62.825
+anchor_bottom = 34.5
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Thrust" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=2116963997]
+[node name="Thrust" type="VBoxContainer" parent="HBoxContainer" unique_id=2116963997]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ThrustMeter" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Thrust" unique_id=491121393]
+[node name="ThrustMeter" type="Panel" parent="HBoxContainer/Thrust" unique_id=491121393]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_xt22q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Thrust/ThrustMeter" unique_id=1549877682]
+[node name="Panel" type="Panel" parent="HBoxContainer/Thrust/ThrustMeter" unique_id=1549877682]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.39449543
@@ -69,23 +63,23 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pk24y")
 script = ExtResource("3_fulxd")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Thrust" unique_id=735590633]
+[node name="Label" type="Label" parent="HBoxContainer/Thrust" unique_id=735590633]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Thrust"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Speed" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=1881510267]
+[node name="Speed" type="VBoxContainer" parent="HBoxContainer" unique_id=1881510267]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Spedometer" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Speed" unique_id=1190437646]
+[node name="Spedometer" type="Panel" parent="HBoxContainer/Speed" unique_id=1190437646]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_puidt")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Speed/Spedometer" unique_id=1229360965]
+[node name="Panel" type="Panel" parent="HBoxContainer/Speed/Spedometer" unique_id=1229360965]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.39449543
@@ -100,7 +94,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pk24y")
 script = ExtResource("5_vae7o")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Speed" unique_id=1648049982]
+[node name="Label" type="Label" parent="HBoxContainer/Speed" unique_id=1648049982]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Speed"
@@ -108,16 +102,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_xt22q")
 
-[node name="Altitude" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=1446125052]
+[node name="Altitude" type="VBoxContainer" parent="HBoxContainer" unique_id=1446125052]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Altimeter" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Altitude" unique_id=862587189]
+[node name="Altimeter" type="Panel" parent="HBoxContainer/Altitude" unique_id=862587189]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_55q2h")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Altitude/Altimeter" unique_id=770362462]
+[node name="Panel" type="Panel" parent="HBoxContainer/Altitude/Altimeter" unique_id=770362462]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.39449543
@@ -132,7 +126,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pk24y")
 script = ExtResource("7_xt22q")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Altitude" unique_id=1102403081]
+[node name="Label" type="Label" parent="HBoxContainer/Altitude" unique_id=1102403081]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Altitude"
