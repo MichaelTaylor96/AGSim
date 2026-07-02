@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	var alignment_arc = Quaternion().slerp(Quaternion(backward, drag_direction), 0.5)
 	var air_drag = (linear_velocity.length()**2) * chassis.drag_modifier * drag_direction
 	air_drag = alignment_arc * air_drag
-	DebugDraw3D.draw_line(global_position, global_position + air_drag.normalized()*3)
+	#DebugDraw3D.draw_line(global_position, global_position + air_drag.normalized()*3)
 	
 	apply_central_force(air_drag)
 	
