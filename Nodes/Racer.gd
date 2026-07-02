@@ -56,13 +56,19 @@ func _physics_process(delta: float) -> void:
 	for thruster in thrusters:
 		thrust_force += thruster.thrust * -global_transform.basis.z
 	apply_central_force(thrust_force)
-
-	var air_drag = (-linear_velocity * linear_velocity.length()) * chassis.drag_modifier
-	apply_central_force(air_drag)
 	
 	rotate_object_local(Vector3.MODEL_FRONT, chassis.roll * delta)
 	rotate_object_local(Vector3.MODEL_TOP, chassis.yaw * delta)
 	rotate_object_local(Vector3.MODEL_LEFT, chassis.pitch * delta)
+
+	var backward = transform.basis.z
+	var drag_direction = -linear_velocity.normalized()
+	var alignment_arc = Quaternion().slerp(Quaternion(backward, drag_direction), 0.5)
+	var air_drag = (linear_velocity.length()**2) * chassis.drag_modifier * drag_direction
+	air_drag = alignment_arc * air_drag
+	DebugDraw3D.draw_line(global_position, global_position + air_drag.normalized()*3)
+	
+	apply_central_force(air_drag)
 	
 	camera_pivot.global_position = camera_pivot.global_position.lerp(global_position, delta * 20.0)
 	if camera_tracking:
