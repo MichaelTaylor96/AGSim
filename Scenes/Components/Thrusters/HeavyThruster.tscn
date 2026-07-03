@@ -7,8 +7,8 @@
 
 [node name="HeavyThruster" type="Node3D" unique_id=803647051 node_paths=PackedStringArray("boost_flame", "thrust_flame")]
 script = ExtResource("1_uhhtm")
-max_thrust = 10000.0
-boost_modifier = 12000.0
+max_thrust = 20000.0
+boost_modifier = 30000.0
 boost_flame = NodePath("BoostFlame")
 thrust_flame = NodePath("StandardFlame")
 mass = 150.0

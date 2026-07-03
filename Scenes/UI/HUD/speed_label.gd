@@ -10,4 +10,4 @@ func _ready() -> void:
 	
 
 func _on_speed_update(speed:float):
-	text = "Speed: %.1f mph" % (speed*2.2369)
+	text = "%.1f mph" % (speed*2.2369)

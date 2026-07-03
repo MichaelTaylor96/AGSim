@@ -1,140 +1,105 @@
 [gd_scene format=3 uid="uid://cvvmmjwe2ct1s"]
 
-[ext_resource type="Texture2D" uid="uid://c562wxvi6mt7f" path="res://Assets/UI/BlueMeter.png" id="1_k8ks1"]
-[ext_resource type="Texture2D" uid="uid://jbj58elukc2l" path="res://Assets/UI/Needle.png" id="2_fulxd"]
-[ext_resource type="Script" uid="uid://dmh73yeuqshxw" path="res://Scenes/UI/HUD/panel.gd" id="3_fulxd"]
-[ext_resource type="Texture2D" uid="uid://bd5n153uwmsys" path="res://Assets/UI/BlackMeter.png" id="3_xqj6d"]
-[ext_resource type="Texture2D" uid="uid://bhrgt178ybo4t" path="res://Assets/UI/GreenMeter.png" id="4_vae7o"]
-[ext_resource type="Script" uid="uid://2tqqv4dydly0" path="res://Scenes/UI/HUD/speed_panel.gd" id="5_vae7o"]
+[ext_resource type="Texture2D" uid="uid://5ngje65johih" path="res://Assets/UI/Hud.png" id="1_inn85"]
+[ext_resource type="Texture2D" uid="uid://dttlmiu11jcyg" path="res://Assets/UI/ThrustTemp.png" id="2_vlvny"]
+[ext_resource type="Script" uid="uid://dmh73yeuqshxw" path="res://Scenes/UI/HUD/thrust_meter.gd" id="3_fulxd"]
+[ext_resource type="Script" uid="uid://dbrqin0y0vkh" path="res://Scenes/UI/HUD/engine_temp.gd" id="3_nebd7"]
+[ext_resource type="Texture2D" uid="uid://bd1ilxpo2mg3e" path="res://Assets/UI/SpeedNeedle.png" id="4_nebd7"]
+[ext_resource type="Script" uid="uid://2tqqv4dydly0" path="res://Scenes/UI/HUD/speed_needle.gd" id="5_vae7o"]
+[ext_resource type="Texture2D" uid="uid://d2gbecidr73hj" path="res://Assets/UI/BoostVal.png" id="6_0xq8k"]
 [ext_resource type="Script" uid="uid://crj36r3tacinm" path="res://Scenes/UI/HUD/speed_label.gd" id="6_xt22q"]
-[ext_resource type="Script" uid="uid://caw421adrm8pj" path="res://Scenes/UI/HUD/alt_panel.gd" id="7_xt22q"]
+[ext_resource type="Script" uid="uid://n5f4c6sq8du8" path="res://Scenes/UI/HUD/boost_on.gd" id="7_0xq8k"]
+[ext_resource type="Texture2D" uid="uid://cwpwhdsi0btdp" path="res://Assets/UI/ThrusterVal.png" id="7_b3m6f"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xt22q"]
-texture = ExtResource("1_k8ks1")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvxf2"]
+texture = ExtResource("1_inn85")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pk24y"]
-texture = ExtResource("2_fulxd")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_puidt"]
-texture = ExtResource("3_xqj6d")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55q2h"]
-texture = ExtResource("4_vae7o")
-
-[node name="PlayUi" type="Node" unique_id=622955533]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=940014704]
+[node name="Control" type="Control" unique_id=281410315]
 visible = false
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=281410315]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=899955650]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=899955650]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 44.475
-anchor_top = 27.875
-anchor_right = 60.975
-anchor_bottom = 33.525
-offset_right = 257.0
-offset_bottom = 39.0
+anchor_left = 42.75
+anchor_top = 20.0
+anchor_right = 63.475
+anchor_bottom = 35.675
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Thrust" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=2116963997]
+[node name="HUD" type="Panel" parent="HBoxContainer" unique_id=595012703]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_vvxf2")
 
-[node name="ThrustMeter" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Thrust" unique_id=491121393]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_xt22q")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Thrust/ThrustMeter" unique_id=1549877682]
+[node name="EngineTemp" type="TextureProgressBar" parent="HBoxContainer/HUD" unique_id=529613178]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.39449543
-anchor_top = 0.021390375
-anchor_right = 0.6238532
-anchor_bottom = 1.0213903
-offset_bottom = 1.5258789e-05
+anchor_left = 0.72014475
+anchor_top = 0.19457732
+anchor_right = 0.9143546
+anchor_bottom = 0.8755981
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(25, 94.5)
-theme_override_styles/panel = SubResource("StyleBoxTexture_pk24y")
-script = ExtResource("3_fulxd")
+fill_mode = 3
+texture_progress = ExtResource("2_vlvny")
+script = ExtResource("3_nebd7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Thrust" unique_id=735590633]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Thrust"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Speed" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=1881510267]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Spedometer" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Speed" unique_id=1190437646]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_puidt")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Speed/Spedometer" unique_id=1229360965]
+[node name="SpeedNeedle" type="TextureRect" parent="HBoxContainer/HUD" unique_id=17723749]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.39449543
-anchor_top = 0.021390375
-anchor_right = 0.6238532
-anchor_bottom = 1.0213903
-offset_bottom = 1.5258789e-05
+anchor_left = 0.4285714
+anchor_top = 0.35725677
+anchor_right = 0.4852113
+anchor_bottom = 0.58054227
+offset_left = 3.0517578e-05
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(25, 94.5)
-theme_override_styles/panel = SubResource("StyleBoxTexture_pk24y")
+texture = ExtResource("4_nebd7")
+stretch_mode = 2
 script = ExtResource("5_vae7o")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Speed" unique_id=1648049982]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Speed"
+[node name="BoostOn" type="TextureRect" parent="HBoxContainer/HUD" unique_id=1381485368]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2110977
+anchor_top = 0.18819776
+anchor_right = 0.25693607
+anchor_bottom = 0.24880382
+texture = ExtResource("6_0xq8k")
+stretch_mode = 2
+script = ExtResource("7_0xq8k")
+metadata/_edit_use_anchors_ = true
+
+[node name="Thrust" type="TextureProgressBar" parent="HBoxContainer/HUD" unique_id=19621375]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0615199
+anchor_top = 0.4290271
+anchor_right = 0.27141133
+anchor_bottom = 0.7814992
+fill_mode = 3
+texture_progress = ExtResource("7_b3m6f")
+script = ExtResource("3_fulxd")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeedLabel" type="Label" parent="HBoxContainer/HUD" unique_id=2083717106]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 425.0
+offset_right = 430.0
+offset_bottom = 448.0
+theme_override_colors/font_color = Color(0.0046062316, 0.18695521, 4.776977e-06, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("6_xt22q")
-
-[node name="Altitude" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=1446125052]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Altimeter" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Altitude" unique_id=862587189]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_55q2h")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer/Altitude/Altimeter" unique_id=770362462]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.39449543
-anchor_top = 0.021390375
-anchor_right = 0.6238532
-anchor_bottom = 1.0213903
-offset_bottom = 1.5258789e-05
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(25, 94.5)
-theme_override_styles/panel = SubResource("StyleBoxTexture_pk24y")
-script = ExtResource("7_xt22q")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Altitude" unique_id=1102403081]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Altitude"
-horizontal_alignment = 1
-vertical_alignment = 1
