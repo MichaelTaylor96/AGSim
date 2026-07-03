@@ -1,9 +1,9 @@
-extends Panel
+extends TextureRect
 
 
 const MIN_ANGLE = -120
 const MAX_ANGLE = 120
-@export var max_speed = 150
+@export var max_speed = 500/2.2369
 
 
 func _ready() -> void:
