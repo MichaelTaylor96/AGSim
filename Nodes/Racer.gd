@@ -2,6 +2,7 @@ extends RigidBody3D
 class_name Racer
 
 const CAMERA_SPEED = 5
+const STRAFE_FORCE = Vector3.MODEL_RIGHT*5000
 
 @export var repulsors : Array[Repulsor]
 @export var thrusters : Array[Thruster]
@@ -34,39 +35,56 @@ func build_from_resource(resource:RacerResource):
 
 
 func _ready() -> void:
+	print(center_of_mass)
 	components.append_array(thrusters)
 	components.append_array(repulsors)
 	components.append(chassis)
 	mass = components.reduce(func(sum, component): return sum + component.mass, 0.0)
+	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+	center_of_mass = Vector3(0,0,0)
+	inertia = Vector3(mass, mass, mass)
 	look_at_point = global_position
+	continuous_cd = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("camera_track"): camera_tracking = !camera_tracking
 
 
+func _draw_force(force:Vector3, color:Color, origin:=Vector3(0,0,0)):
+	if origin.length() == 0: origin = transform * Vector3.MODEL_TOP
+	DebugDraw3D.draw_line(origin, origin+force, color)
+
+
 func _physics_process(delta: float) -> void:
 	for repulsor in repulsors:
 		repulsor.update_force(linear_velocity, angular_velocity, global_position)
-		#var force_origin := repulsor.force_position + global_position
-		#DebugDraw3D.draw_arrow(force_origin, force_origin + repulsor.force/1000)
+		if debug_enabled:
+			var force_origin := repulsor.force_position + global_position
+			_draw_force(repulsor.force/10000, Color.BLUE, force_origin)
 		apply_force(repulsor.force, repulsor.force_position)
 
 	var thrust_force = Vector3()
 	for thruster in thrusters:
-		thrust_force += thruster.thrust * -global_transform.basis.z
+		thrust_force += -global_transform.basis.z * thruster.thrust
+	if debug_enabled: _draw_force(thrust_force/10000, Color.RED)
 	apply_central_force(thrust_force)
 	
-	rotate_object_local(Vector3.MODEL_FRONT, chassis.roll * delta)
-	rotate_object_local(Vector3.MODEL_TOP, chassis.yaw * delta)
-	rotate_object_local(Vector3.MODEL_LEFT, chassis.pitch * delta)
+	apply_torque(transform.basis * (Vector3.MODEL_FRONT * chassis.roll * 5000))
+	apply_torque(transform.basis * (Vector3.MODEL_TOP * chassis.yaw * 5000))
+	apply_torque(transform.basis * (Vector3.MODEL_LEFT * chassis.pitch * 5000))
 
+	var strafe_force = transform.basis*(Input.get_axis("strafe_right", "strafe_left")*STRAFE_FORCE)
+	var strafe_position = transform.basis*Vector3(0, 0.02, 0)
+	if debug_enabled: _draw_force(strafe_force/5000, Color.RED)
+	apply_force(strafe_force, strafe_position)
+	
 	var backward = transform.basis.z
 	var drag_direction = -linear_velocity.normalized()
-	var alignment_arc = Quaternion().slerp(Quaternion(backward, drag_direction), 0.5)
+	var alignment_arc = Quaternion().slerp(Quaternion(backward, drag_direction), 0.25)
 	var air_drag = (linear_velocity.length()**2) * chassis.drag_modifier * drag_direction
 	air_drag = alignment_arc * air_drag
-	DebugDraw3D.draw_line(global_position, global_position + air_drag.normalized()*3)
+	if debug_enabled: _draw_force(air_drag/5000, Color.GREEN_YELLOW)
 	
 	apply_central_force(air_drag)
 	
@@ -79,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	
 	var right_stick = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
 	camera_pivot.rotate(Vector3.DOWN, right_stick.x * delta * CAMERA_SPEED)
-	camera_pivot.rotate_object_local(Vector3.FORWARD, right_stick.y * delta * CAMERA_SPEED)
+	camera_pivot.rotate_object_local(Vector3.RIGHT, right_stick.y * delta * CAMERA_SPEED)
 	
 	EventBus.spedometer_update.emit(linear_velocity.length())
 	EventBus.altimeter_update.emit(global_position.y)

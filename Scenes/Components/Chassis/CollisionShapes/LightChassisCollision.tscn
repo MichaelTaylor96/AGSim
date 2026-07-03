@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://by2ijia6h2tk2"]
+[gd_scene format=3 uid="uid://d2ugihdjfj7f5"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dcs07"]
-size = Vector3(0.7089844, 0.2128601, 2.7376099)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dcs07"]
+points = PackedVector3Array(0, 0, -1.3, 0, 0.4, 1.3, 1, 0, 1, -1, 0, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" unique_id=1035588998]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009765625, 0.14463806, 0.11282349)
-shape = SubResource("BoxShape3D_dcs07")
+[node name="CollisionShape3D" type="CollisionShape3D" unique_id=1098712948]
+shape = SubResource("ConvexPolygonShape3D_dcs07")

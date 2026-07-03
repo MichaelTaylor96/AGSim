@@ -9,39 +9,39 @@
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fbcm8"]
 _surfaces = [{
-"aabb": AABB(-0.5844853, -0.50872636, -1.6936396, 1.1081073, 0.50872636, 3.2651563),
-"attribute_data": PackedByteArray("1KAVPwAAAAAAAAAAAAAAAHbWjT/FgBZAAAAAAAAAAADUoBU/AAAAAAAAAAAAAAAA1KAVPwAAAAAAAAAAAAAAAAAAAABxGhZAAAAAAAAAAAB21o0/xYAWQAAAAAAAAAAA1KAVP4d3az8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADUoBU/h3drPwAAAAAAAAAA1KAVP4d3az8AAAAAAAAAAHbWjT8Aqcw7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFL4UEAAAAAAAAAAABcMBj813mk/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFL4UEAAAAAAAAAAAAAAAABS+FBAAAAAAAAAAAAXDAY/Nd5pPwAAAAAAAAAA1KAVPwAAAAAAAAAAAAAAANSgFT9S+FBAAAAAAAAAAADUoBU/UvhQQAAAAAAAAAAA1KAVPwAAAAAAAAAAAAAAAAAAAACHd2s/AAAAAAAAAADUoBU/UvhQQAAAAAAAAAAA"),
+"aabb": AABB(-1, -0.50872636, -1.3877394, 2, 0.50872636, 2.9592562),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAAEC7kyRAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAC7kyRAAAAAAAAAAAAAAABAu5MkQAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAEDkOwI/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAADkOwI/AAAAAAAAAAAAAABA5DsCPwAAAAAAAAAAAAAAAHRkPUAAAAAAAAAAAAAAgD/IhcY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHRkPUAAAAAAAAAAAAAAAAB0ZD1AAAAAAAAAAAAAAIA/yIXGPgAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD90ZD1AAAAAAAAAAAAAAIA/dGQ9QAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAADIhcY+AAAAAAAAAAAAAIA/dGQ9QAAAAAAAAAAA"),
 "format": 34359738423,
 "material": ExtResource("3_q3oxd"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAAAAB2J8k/FwwGPwAAAAAptEe/AAAAAAAAAAB2J8k/AAAAAAAAAAB2J8k/1KAVvwAAAADXGka/FwwGPwAAAAAptEe/AAAAAOQ7Ar8vydi/1KAVvwAAAADXGka/AAAAAOQ7Ar8vydi/AAAAAOQ7Ar8vydi/FwwGPwAAAAAptEe/1KAVvwAAAADXGka/AAAAAAAAAAB2J8k/FwwGPwAAAAAptEe/AAAAAOQ7Ar8vydi/AAAAAAAAAAB2J8k/AAAAAAAAAAB2J8k/FwwGPwAAAAAptEe/AAAAAOQ7Ar8vydi/AAAAAAAAAAB2J8k/AAAAAAAAAAB2J8k/AAAAAOQ7Ar8vydi/1KAVvwAAAADXGka/AAAAAAAAAAB2J8k//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/JVK9/1MVUaIlUr3/UxVRoiVSvf9TFVGiJVK9/1MVUaIlUr3/UxVRoiVSvf9TFVGiRLAEO3w+nKpEsAQ7fD6cqkSwBDt8PpyqRLAEO3w+nKpEsAQ7fD6cqkSwBDt8PpyqEFMhOIw9HtYQUyE4jD0e1hBTITiMPR7WEFMhOIw9HtYQUyE4jD0e1hBTITiMPR7W")
+"vertex_data": PackedByteArray("AAAAAAAAAAB2J8k/AACAPwAAAAAAAIC/AAAAAAAAAAB2J8k/AAAAAAAAAAB2J8k/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/AAAAAOQ7Ar9yobG/AACAvwAAAAAAAIC/AAAAAOQ7Ar9yobG/AAAAAOQ7Ar9yobG/AACAPwAAAAAAAIC/AACAvwAAAAAAAIC/AAAAAAAAAAB2J8k/AACAPwAAAAAAAIC/AAAAAOQ7Ar9yobG/AAAAAAAAAAB2J8k/AAAAAAAAAAB2J8k/AACAPwAAAAAAAIC/AAAAAOQ7Ar9yobG/AAAAAAAAAAB2J8k/AAAAAAAAAAB2J8k/AAAAAOQ7Ar9yobG/AACAvwAAAAAAAIC/AAAAAAAAAAB2J8k//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/XDf//6A23Y9cN///oDbdj1w3//+gNt2PXDf//6A23Y9cN///oDbdj1w3//+gNt2PDqOxMFYoyawOo7EwVijJrA6jsTBWKMmsDqOxMFYoyawOo7EwVijJrA6jsTBWKMms8FyxMAkpaNPwXLEwCSlo0/BcsTAJKWjT8FyxMAkpaNPwXLEwCSlo0/BcsTAJKWjT")
 }]
 
 [sub_resource type="Resource" id="Resource_q3oxd"]
 script = ExtResource("5_o7f5a")
 vertex_indices = Array[int]([0, 0, 2, 1])
-uvs = Array[Vector2]([Vector2(0.5844853, 0), Vector2(0.5844853, 0), Vector2(1.1081073, 2.3516095), Vector2(0, 2.3453639)])
+uvs = Array[Vector2]([Vector2(1, 0), Vector2(1, 0), Vector2(2, 2.5715168), Vector2(0, 2.5715168)])
 
 [sub_resource type="Resource" id="Resource_8qs7b"]
 script = ExtResource("5_o7f5a")
 vertex_indices = Array[int]([3, 3, 1, 2])
-uvs = Array[Vector2]([Vector2(0.5844853, 0.9197926), Vector2(0.5844853, 0.9197926), Vector2(0, 0), Vector2(1.1081073, 0.0062457323)])
+uvs = Array[Vector2]([Vector2(1, 0), Vector2(1, 0), Vector2(2, 0.50872636), Vector2(0, 0.50872636)])
 
 [sub_resource type="Resource" id="Resource_o7f5a"]
 script = ExtResource("5_o7f5a")
 vertex_indices = Array[int]([0, 3, 2, 0])
-uvs = Array[Vector2]([Vector2(0, 3.2651563), Vector2(0, 0), Vector2(0.523622, 0.91354686), Vector2(0, 3.2651563)])
+uvs = Array[Vector2]([Vector2(0, 2.9592562), Vector2(0, 0), Vector2(1, 0.38773942), Vector2(0, 2.9592562)])
 
 [sub_resource type="Resource" id="Resource_pqtar"]
 script = ExtResource("5_o7f5a")
 vertex_indices = Array[int]([3, 0, 0, 1])
-uvs = Array[Vector2]([Vector2(0.5844853, 0), Vector2(0.5844853, 3.2651563), Vector2(0.5844853, 3.2651563), Vector2(0, 0.9197926)])
+uvs = Array[Vector2]([Vector2(1, 0), Vector2(1, 2.9592562), Vector2(1, 2.9592562), Vector2(0, 0.38773942)])
 
 [sub_resource type="Resource" id="Resource_8qsr1"]
 script = ExtResource("6_pqtar")
-vertices = Array[Vector3]([Vector3(0, 0, 1.5715168), Vector3(-0.5844853, 0, -0.77384704), Vector3(0.523622, 0, -0.7800928), Vector3(0, -0.50872636, -1.6936396)])
+vertices = Array[Vector3]([Vector3(0, 0, 1.5715168), Vector3(-1, 0, -1), Vector3(1, 0, -1), Vector3(0, -0.50872636, -1.3877394)])
 faces = Array[ExtResource("5_o7f5a")]([SubResource("Resource_q3oxd"), SubResource("Resource_8qs7b"), SubResource("Resource_o7f5a"), SubResource("Resource_pqtar")])
 material_slots = Array[Material]([ExtResource("3_q3oxd")])
 
@@ -53,8 +53,8 @@ yaw_speed = 4.0
 pitch_speed = 2.8
 roll_speed = 4.0
 air_brake_drag_mod = 0.6
-collision_shape = "uid://by2ijia6h2tk2"
-angular_damp = 1.0
+collision_shape = "uid://d2ugihdjfj7f5"
+angular_damp = 2.0
 thruster_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 1.15)])
 repulsor_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0.7), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.7)])
 mass = 300.0
