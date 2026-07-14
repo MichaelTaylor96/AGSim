@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dnfvl8qj02ndv"]
+
+[node name="Mount1" type="Node3D" unique_id=1747720675]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=424052177]
+radius = 0.01
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1385920760]
+transform = Transform3D(-5.5216325e-09, 0, 0.004506083, 0, 0.0064267055, 0, -0.12632021, 0, -1.9696714e-10, 0.00019522011, 0, -0.02824413)
+size = Vector3(0.42114258, 1, 1)

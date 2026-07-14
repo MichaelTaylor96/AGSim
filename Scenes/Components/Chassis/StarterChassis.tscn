@@ -2,20 +2,49 @@
 
 [ext_resource type="Script" uid="uid://djaiplmgwg04k" path="res://Nodes/Components/Chassis.gd" id="1_s0wmj"]
 [ext_resource type="Material" uid="uid://dyx4l6ea0am6f" path="res://addons/prototype_mini_bundle/M_prototype_green.tres" id="2_45tky"]
+[ext_resource type="PackedScene" uid="uid://dnfvl8qj02ndv" path="res://Scenes/Components/Chassis/Mount.tscn" id="3_fqddt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_swbot"]
 size = Vector3(1.5, 0.5, 2.5)
 
-[node name="StarterChassis" type="Node3D" unique_id=862486162]
+[node name="StarterChassis" type="Node3D" unique_id=862486162 node_paths=PackedStringArray("left_strafe_mount", "right_strafe_mount", "thruster_mounts", "repulsor_mounts")]
 script = ExtResource("1_s0wmj")
-air_brake_drag_mod = 1.0
+air_brake_drag_mod = 1.2
 collision_shape = "uid://b2fbqx5bija73"
-angular_damp = 1.25
-thruster_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3)])
-repulsor_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 0.602, 0, 0, 0, 1, 0.6, -0.25, 1), Transform3D(1, 0, 0, 0, 0.602, 0, 0, 0, 1, -0.6, -0.25, 1), Transform3D(1, 0, 0, 0, 0.602, 0, 0, 0, 1, -0.6, -0.25, -1), Transform3D(1, 0, 0, 0, 0.602, 0, 0, 0, 1, 0.6, -0.25, -1)])
+angular_damp = 3.5
+left_strafe_mount = NodePath("StrafeMounts/MountLeft")
+right_strafe_mount = NodePath("StrafeMounts/MountRight")
+thruster_mounts = [NodePath("ThrusterMount")]
+repulsor_mounts = [NodePath("RepulsorMounts/Mount1"), NodePath("RepulsorMounts/Mount2"), NodePath("RepulsorMounts/Mount3"), NodePath("RepulsorMounts/Mount4")]
 mass = 500.0
 metadata/_custom_type_script = "uid://djaiplmgwg04k"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=780797111]
 material_override = ExtResource("2_45tky")
 mesh = SubResource("BoxMesh_swbot")
+
+[node name="RepulsorMounts" type="Node3D" parent="." unique_id=801744130]
+visible = false
+
+[node name="Mount1" parent="RepulsorMounts" unique_id=1747720675 instance=ExtResource("3_fqddt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56, -0.254, 1)
+
+[node name="Mount2" parent="RepulsorMounts" unique_id=1118677420 instance=ExtResource("3_fqddt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56, -0.254, -1)
+
+[node name="Mount3" parent="RepulsorMounts" unique_id=680108805 instance=ExtResource("3_fqddt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56, -0.254, 1)
+
+[node name="Mount4" parent="RepulsorMounts" unique_id=965814533 instance=ExtResource("3_fqddt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56, -0.254, -1)
+
+[node name="StrafeMounts" type="Node3D" parent="." unique_id=1855757742]
+
+[node name="MountLeft" parent="StrafeMounts" unique_id=836104001 instance=ExtResource("3_fqddt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.3, 0.254, 0.15)
+
+[node name="MountRight" parent="StrafeMounts" unique_id=1886578905 instance=ExtResource("3_fqddt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.3, 0.254, 0.15)
+
+[node name="ThrusterMount" parent="." unique_id=528494146 instance=ExtResource("3_fqddt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2497346)

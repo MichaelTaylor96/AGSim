@@ -1,0 +1,114 @@
+[gd_scene format=4 uid="uid://b51mgptshdtgr"]
+
+[ext_resource type="Script" uid="uid://bw8g06ncm655n" path="res://Nodes/Components/StrafeThruster.gd" id="1_25woe"]
+[ext_resource type="Material" uid="uid://dgjiw8udooecr" path="res://addons/prototype_mini_bundle/M_prototype_dark.tres" id="1_35oru"]
+[ext_resource type="Material" uid="uid://cntqkyfsxy3lm" path="res://addons/go_build/go_build_material.tres" id="2_25woe"]
+[ext_resource type="Script" uid="uid://c5lmsxlfjrgg4" path="res://addons/go_build/core/go_build_mesh_instance.gd" id="3_5vgfm"]
+[ext_resource type="Script" uid="uid://b088hhnumhyyf" path="res://addons/go_build/mesh/go_build_face.gd" id="4_l7d4k"]
+[ext_resource type="Script" uid="uid://d2aaojusfuctj" path="res://addons/go_build/mesh/go_build_mesh.gd" id="5_uxj12"]
+[ext_resource type="Material" uid="uid://1nvrnylcajfg" path="res://addons/prototype_mini_bundle/M_prototype_red.tres" id="6_viw8r"]
+[ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="7_cf608"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_25woe"]
+_surfaces = [{
+"aabb": AABB(-0.12954633, -0.04528011, -0.05049025, 0.25924072, 0.045282617, 0.12605828),
+"attribute_data": PackedByteArray("osddPQBipTkAAAAAAAAAADO7hD5sFQE+AAAAAAAAAAD631E+AAAAAAAAAAAAAAAAosddPQBipTkAAAAAAAAAAAAAAACTGAA+AAAAAAAAAAAzu4Q+bBUBPgAAAAAAAAAA+jCLPAAAAAAAAAAAAAAAABJuGj4b9wA+AAAAAAAAAAD6sQg+gLONOQAAAAAAAAAA+jCLPAAAAAAAAAAAAAAAAAAAAABqpAA+AAAAAAAAAAASbho+G/cAPgAAAAAAAAAABqWSPcCmLToAAAAAAAAAADO7hD6jdzk9AAAAAAAAAABenkA+AAAAAAAAAAAAAAAABqWSPcCmLToAAAAAAAAAAAAAAACjdzk9AAAAAAAAAAAzu4Q+o3c5PQAAAAAAAAAAuOCNPGwVAT4AAAAAAAAAAAalkj0AAAAAAAAAAAAAAAAAAAAAgFbKOQAAAAAAAAAAuOCNPGwVAT4AAAAAAAAAALjgjTxsFQE+AAAAAAAAAAAGpZI9AAAAAAAAAAAAAAAAELCRPQAAAAAAAAAAAAAAAKLHXT1qpAA+AAAAAAAAAACix109aqQAPgAAAAAAAAAAELCRPQAAAAAAAAAAAAAAAAAAAACAh146AAAAAAAAAACix109aqQAPgAAAAAAAAAA"),
+"format": 34359738423,
+"material": ExtResource("2_25woe"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("xWuavQAAAAAIHpo9m84EPgAAAADdzk69XnCaPQAgKDZqw5o9xWuavQAAAAAIHpo9y6cEvgAAAAB520q9m84EPgAAAADdzk69DT9vvaN3Ob2XVU69XnCaPQAgKDZqw5o9YPBtPQjBNr0wOk29DT9vvaN3Ob2XVU69xWuavQAAAAAIHpo9XnCaPQAgKDZqw5o9YPBtPQjBNr0wOk29y6cEvgAAAAB520q9DT9vvaN3Ob2XVU69YPBtPQjBNr0wOk29m84EPgAAAADdzk69y6cEvgAAAAB520q9XnCaPQAgKDZqw5o9m84EPgAAAADdzk69YPBtPQjBNr0wOk29XnCaPQAgKDZqw5o9XnCaPQAgKDZqw5o9m84EPgAAAADdzk69DT9vvaN3Ob2XVU69xWuavQAAAAAIHpo9xWuavQAAAAAIHpo9DT9vvaN3Ob2XVU69y6cEvgAAAAB520q9xWuavQAAAAAIHpo9/n/+/wAA/r/+f/7/AAD+v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6/KIDXIScLCKsogNchJwsIqyiA1yEnCwirKIDXIScLCKsogNchJwsIqyiA1yEnCwirpwDC/xp/HoCnAML/Gn8egKcAwv8afx6ApwDC/xp/HoCnAML/Gn8egKcAwv8afx6AN6pmPLg0iak3qmY8uDSJqTeqZjy4NImpN6pmPLg0iak3qmY8uDSJqTeqZjy4NImphFXqPPo5o9eEVeo8+jmj14RV6jz6OaPXhFXqPPo5o9eEVeo8+jmj14RV6jz6OaPX")
+}]
+
+[sub_resource type="Resource" id="Resource_4xnn4"]
+script = ExtResource("4_l7d4k")
+vertex_indices = Array[int]([0, 1, 3, 2])
+uvs = Array[Vector2]([Vector2(0.054145463, 0.00031544268), Vector2(0.20495597, 0), Vector2(0.25924072, 0.12605828), Vector2(0, 0.12509374)])
+
+[sub_resource type="Resource" id="Resource_lew8j"]
+script = ExtResource("4_l7d4k")
+vertex_indices = Array[int]([4, 5, 1, 0])
+uvs = Array[Vector2]([Vector2(0.016991127, 0), Vector2(0.13349143, 0.00027027354), Vector2(0.15081051, 0.12594263), Vector2(0, 0.12562719)])
+
+[sub_resource type="Resource" id="Resource_jpibb"]
+script = ExtResource("4_l7d4k")
+vertex_indices = Array[int]([5, 4, 2, 3])
+uvs = Array[Vector2]([Vector2(0.07160382, 0.0006624274), Vector2(0.18810412, 0), Vector2(0.25924072, 0.04528011), Vector2(0, 0.04528011)])
+
+[sub_resource type="Resource" id="Resource_sl4ak"]
+script = ExtResource("4_l7d4k")
+vertex_indices = Array[int]([1, 5, 3, 1])
+uvs = Array[Vector2]([Vector2(0.017319068, 0.12605828), Vector2(0, 0.0003859289), Vector2(0.07160382, 0), Vector2(0.017319068, 0.12605828)])
+
+[sub_resource type="Resource" id="Resource_qr43r"]
+script = ExtResource("4_l7d4k")
+vertex_indices = Array[int]([4, 0, 0, 2])
+uvs = Array[Vector2]([Vector2(0.071136594, 0), Vector2(0.054145463, 0.12562719), Vector2(0.054145463, 0.12562719), Vector2(0, 0.0008488819)])
+
+[sub_resource type="Resource" id="Resource_6gsp1"]
+script = ExtResource("5_uxj12")
+vertices = Array[Vector3]([Vector3(-0.07540087, 0, 0.07525259), Vector3(0.075409636, 2.5052577e-06, 0.075568035), Vector3(-0.12954633, 0, -0.04952571), Vector3(0.12969439, 0, -0.05049025), Vector3(-0.05840974, -0.04528011, -0.050374594), Vector3(0.058090568, -0.044617683, -0.05010432)])
+faces = Array[ExtResource("4_l7d4k")]([SubResource("Resource_4xnn4"), SubResource("Resource_lew8j"), SubResource("Resource_jpibb"), SubResource("Resource_sl4ak"), SubResource("Resource_qr43r")])
+material_slots = Array[Material]([ExtResource("2_25woe")])
+
+[sub_resource type="Curve" id="Curve_njbf4"]
+_data = [Vector2(0, 1), 0.0, -1.00232, 0, 1, Vector2(0.99768525, 0), -1.00232, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_6nx70"]
+material = ExtResource("6_viw8r")
+shape = 0
+size = 0.2
+section_length = 0.03
+curve = SubResource("Curve_njbf4")
+
+[sub_resource type="Curve" id="Curve_cye16"]
+_data = [Vector2(0.009259257, 1), 0.0, -1.0117096, 0, 1, Vector2(0.99768525, 0), -1.0117096, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_xv8j3"]
+material = ExtResource("7_cf608")
+shape = 0
+size = 0.1
+section_length = 0.03
+curve = SubResource("Curve_cye16")
+
+[sub_resource type="Curve" id="Curve_job7r"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_xgkfd"]
+shape = 0
+size = 0.1
+section_length = 0.03
+curve = SubResource("Curve_job7r")
+
+[node name="StrafeThruster" type="Node3D" unique_id=317183001 node_paths=PackedStringArray("thrust_visual")]
+script = ExtResource("1_25woe")
+thrust = 15000
+thrust_visual = NodePath("Flame")
+metadata/_custom_type_script = "uid://bw8g06ncm655n"
+
+[node name="GoBuildCube" type="MeshInstance3D" parent="." unique_id=1167447781]
+transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
+material_override = ExtResource("1_35oru")
+mesh = SubResource("ArrayMesh_25woe")
+script = ExtResource("3_5vgfm")
+go_build_mesh = SubResource("Resource_6gsp1")
+
+[node name="Flame" type="Node3D" parent="." unique_id=1136268010]
+visible = false
+
+[node name="CSGMesh3D" type="MeshInstance3D" parent="Flame" unique_id=418233905]
+transform = Transform3D(1, 0, 0, 0, 0.022687351, 0.9997426, 0, -0.9997426, 0.022687351, 0, 0.014442205, 0.12072009)
+mesh = SubResource("RibbonTrailMesh_6nx70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flame" unique_id=933424890]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.04688809, 0.016427875, 0.1279411)
+mesh = SubResource("RibbonTrailMesh_xv8j3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Flame" unique_id=451524958]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.04685799, 0.016394988, 0.12746225)
+material_override = ExtResource("7_cf608")
+mesh = SubResource("RibbonTrailMesh_xgkfd")

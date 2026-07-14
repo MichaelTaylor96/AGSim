@@ -10,9 +10,10 @@ class_name Chassis
 @export var air_brake_drag_mod := 0.4
 @export var collision_shape : String
 @export var angular_damp : float
-@export var auxiliary_thruster_mounts : Array[Transform3D]
-@export var thruster_mounts : Array[Transform3D]
-@export var repulsor_mounts : Array[Transform3D]
+@export var left_strafe_mount : Node3D
+@export var right_strafe_mount : Node3D
+@export var thruster_mounts : Array[Node3D]
+@export var repulsor_mounts : Array[Node3D]
 
 
 @onready var drag_coefficient := base_drag
@@ -39,7 +40,7 @@ func populate_repulsors(resource:Resource) -> Array[Repulsor]:
 	var repulsors : Array[Repulsor] = []
 	for mount in repulsor_mounts:
 		var new_node : Repulsor = resource.instantiate()
-		new_node.transform = mount
+		new_node.transform = mount.transform
 		new_node.add_to_group("repulsor")
 		add_child(new_node)
 		repulsors.append(new_node)
@@ -51,20 +52,26 @@ func populate_thrusters(resource:Resource) -> Array[Thruster]:
 	var thrusters : Array[Thruster] = []
 	for mount in thruster_mounts:
 		var new_node : Thruster = resource.instantiate()
-		new_node.transform = mount
+		new_node.transform = mount.transform
 		new_node.add_to_group("thruster")
 		add_child(new_node)
 		thrusters.append(new_node)
 	return thrusters
 
 
-func populate_auxiliary_thrusters(resource:Resource) -> Array[Thruster]:
-	if is_inside_tree(): get_tree().call_group("auxiliary_thruster", "queue_free")
-	var aux_thrusts : Array[Thruster] = []
-	for mount in auxiliary_thruster_mounts:
-		var new_node : Thruster = resource.instantiate()
-		new_node.transform = mount
-		new_node.add_to_group("auxiliary_thruster")
-		add_child(new_node)
-		aux_thrusts.append(new_node)
-	return aux_thrusts
+func populate_strafe_thrusters(resource:Resource) -> Dictionary[String, StrafeThruster]:
+	if is_inside_tree(): get_tree().call_group("strafe_thruster", "queue_free")
+	
+	var left_strafe_thruster : StrafeThruster = resource.instantiate()
+	var right_strafe_thruster : StrafeThruster = resource.instantiate()
+	left_strafe_thruster.transform = left_strafe_mount.transform
+	right_strafe_thruster.transform = right_strafe_mount.transform
+	left_strafe_thruster.add_to_group("strafe_thruster")
+	right_strafe_thruster.add_to_group("strafe_thruster")
+	add_child(left_strafe_thruster)
+	add_child(right_strafe_thruster)
+	
+	return {
+		"right": right_strafe_thruster,
+		"left": left_strafe_thruster
+	}
