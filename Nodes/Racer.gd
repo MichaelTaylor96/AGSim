@@ -2,10 +2,10 @@ extends RigidBody3D
 class_name Racer
 
 const CAMERA_SPEED = 5
-const STRAFE_FORCE = Vector3.MODEL_RIGHT*5000
 
 @export var repulsors : Array[Repulsor]
 @export var thrusters : Array[Thruster]
+@export var strafe_thrusters : Dictionary[String, StrafeThruster]
 @export var chassis : Chassis
 
 @onready var camera_pivot = $CameraPivot
@@ -22,8 +22,7 @@ func build_from_resource(resource:RacerResource):
 	chassis = resource.chassis.instantiate()
 	repulsors = chassis.populate_repulsors(resource.repulsor)
 	thrusters = chassis.populate_thrusters(resource.thruster)
-	if resource.auxiliary_thrusters != null:
-		thrusters.append_array(chassis.populate_auxiliary_thrusters(resource.auxiliary_thrusters))
+	strafe_thrusters = chassis.populate_strafe_thrusters(resource.strafe_thrusters)
 	angular_damp = chassis.angular_damp
 	add_child(chassis)
 
@@ -74,10 +73,13 @@ func _physics_process(delta: float) -> void:
 	apply_torque(transform.basis * (Vector3.MODEL_TOP * chassis.yaw * 5000))
 	apply_torque(transform.basis * (Vector3.MODEL_LEFT * chassis.pitch * 5000))
 
-	var strafe_force = transform.basis*(Input.get_axis("strafe_right", "strafe_left")*STRAFE_FORCE)
-	var strafe_position = transform.basis*Vector3(0, 0.02, 0)
+	var strafe_dir := Input.get_axis("strafe_right", "strafe_left")
+	var strafer := strafe_thrusters["right"] if strafe_dir == 1 else strafe_thrusters["left"]
+	var strafe_force = transform.basis*(strafe_dir*Vector3.MODEL_RIGHT*strafer.thrust)
+	strafe_thrusters["right"].thrust_visual.visible = strafe_dir == 1
+	strafe_thrusters["left"].thrust_visual.visible = strafe_dir == -1
 	if debug_enabled: _draw_force(strafe_force/5000, Color.RED)
-	apply_force(strafe_force, strafe_position)
+	apply_central_force(strafe_force)
 	
 	var backward = transform.basis.z
 	var drag_direction = -linear_velocity.normalized()

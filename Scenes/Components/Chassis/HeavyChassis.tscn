@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://djaiplmgwg04k" path="res://Nodes/Components/Chassis.gd" id="1_fbn48"]
 [ext_resource type="Material" uid="uid://dyx4l6ea0am6f" path="res://addons/prototype_mini_bundle/M_prototype_green.tres" id="2_p7t3k"]
+[ext_resource type="PackedScene" uid="uid://dnfvl8qj02ndv" path="res://Scenes/Components/Chassis/Mount.tscn" id="3_e00lj"]
 
-[node name="HeavyChassis" type="Node3D" unique_id=418172384]
+[node name="HeavyChassis" type="Node3D" unique_id=418172384 node_paths=PackedStringArray("left_strafe_mount", "right_strafe_mount", "thruster_mounts", "repulsor_mounts")]
 script = ExtResource("1_fbn48")
 base_area = 8.0
 base_drag = 0.8
@@ -13,37 +14,71 @@ air_brake_area_mod = 2
 air_brake_drag_mod = 0.7
 collision_shape = "uid://b6ueyo1u7k5ge"
 angular_damp = 4.0
-auxiliary_thruster_mounts = Array[Transform3D]([Transform3D(0.707, 0.707, 0, -0.707, 0.707, 0, 0, 0, 1, 0.878, 0.063, -1), Transform3D(0.707, -0.707, 0, 0.707, 0.707, 0, 0, 0, 1, -0.878, 0.063, -1)])
-thruster_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 1.3)])
-repulsor_mounts = Array[Transform3D]([Transform3D(0.996, 0.087, 0, -0.087, 0.996, 0, 0, 0, 1, -1.15, -0.35, 1.2), Transform3D(0.996, 0.087, 0, -0.087, 0.996, 0, 0, 0, 1, -1.15, -0.35, -1.2), Transform3D(0.996, -0.087, 0, 0.087, 0.996, 0, 0, 0, 1, 1.15, -0.35, 1.2), Transform3D(0.996, -0.087, 0, 0.087, 0.996, 0, 0, 0, 1, 1.15, -0.35, -1.2), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.332, 0)])
+left_strafe_mount = NodePath("StrafeMounts/MountLeft")
+right_strafe_mount = NodePath("StrafeMounts/MountRight")
+thruster_mounts = [NodePath("ThrusterMount")]
+repulsor_mounts = [NodePath("RepulsorMounts/Mount1"), NodePath("RepulsorMounts/Mount2"), NodePath("RepulsorMounts/Mount3"), NodePath("RepulsorMounts/Mount4"), NodePath("RepulsorMounts/Mount5")]
 mass = 700.0
 metadata/_custom_type_script = "uid://djaiplmgwg04k"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2024123875]
+[node name="Mesh" type="Node3D" parent="." unique_id=522758547]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mesh" unique_id=2024123875]
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.8, 0, 0)
 material_override = ExtResource("2_p7t3k")
 size = Vector3(1, 0.2, 3)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=862130759]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Mesh" unique_id=862130759]
 transform = Transform3D(0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0, 1, 0.8, 0, 0)
 material_override = ExtResource("2_p7t3k")
 size = Vector3(1, 0.2, 3)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=2086653526]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Mesh" unique_id=2086653526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0304537)
 material_override = ExtResource("2_p7t3k")
 size = Vector3(1.6, 0.2, 0.6)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1010384773]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Mesh" unique_id=1010384773]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.7207962)
 material_override = ExtResource("2_p7t3k")
 radius = 0.35
 height = 1.25
 sides = 25
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1557564970]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Mesh" unique_id=1557564970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.06187284)
 material_override = ExtResource("2_p7t3k")
 radius = 0.35
 radial_segments = 30
 rings = 10
+
+[node name="ThrusterMount" parent="." unique_id=1747720675 instance=ExtResource("3_e00lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3435313)
+visible = false
+
+[node name="RepulsorMounts" type="Node3D" parent="." unique_id=1579502207]
+visible = false
+
+[node name="Mount1" parent="RepulsorMounts" unique_id=1107957798 instance=ExtResource("3_e00lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34898362, 0)
+
+[node name="Mount2" parent="RepulsorMounts" unique_id=2054148962 instance=ExtResource("3_e00lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16, -0.348, -1.31)
+
+[node name="Mount3" parent="RepulsorMounts" unique_id=585912812 instance=ExtResource("3_e00lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16, -0.348, -1.31)
+
+[node name="Mount4" parent="RepulsorMounts" unique_id=1590690391 instance=ExtResource("3_e00lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16, -0.348, 1.31)
+
+[node name="Mount5" parent="RepulsorMounts" unique_id=834440661 instance=ExtResource("3_e00lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1604381, -0.3475921, 1.3099693)
+
+[node name="StrafeMounts" type="Node3D" parent="." unique_id=846438733]
+visible = false
+
+[node name="MountLeft" parent="StrafeMounts" unique_id=730159945 instance=ExtResource("3_e00lj")]
+transform = Transform3D(-7.611355e-09, -1.5320888, -1.2855754, -6.696975e-08, 1.2855754, -1.5320888, 2, 3.7216694e-08, -5.6194285e-08, -0.872, 0.073, 0)
+
+[node name="MountRight" parent="StrafeMounts" unique_id=186264982 instance=ExtResource("3_e00lj")]
+transform = Transform3D(-7.611355e-09, 1.5320888, 1.2855754, 6.696975e-08, 1.2855754, -1.5320888, -2, 3.7216694e-08, -5.6194285e-08, 0.8719498, 0.07301434, 0)

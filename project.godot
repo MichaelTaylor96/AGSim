@@ -175,10 +175,9 @@ strafe_right={
 
 [physics]
 
-common/physics_ticks_per_second=100
 3d/physics_engine="Jolt Physics"
+3d/default_angular_damp=4.0
 common/physics_interpolation=true
-<<<<<<<HEAD3d/default_angular_damp=4.0
 
 [rendering]
 

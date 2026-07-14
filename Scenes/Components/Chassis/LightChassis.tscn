@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://c5lmsxlfjrgg4" path="res://addons/go_build/core/go_build_mesh_instance.gd" id="4_8qs7b"]
 [ext_resource type="Script" uid="uid://b088hhnumhyyf" path="res://addons/go_build/mesh/go_build_face.gd" id="5_o7f5a"]
 [ext_resource type="Script" uid="uid://d2aaojusfuctj" path="res://addons/go_build/mesh/go_build_mesh.gd" id="6_pqtar"]
+[ext_resource type="PackedScene" uid="uid://dnfvl8qj02ndv" path="res://Scenes/Components/Chassis/Mount.tscn" id="7_q3oxd"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_fbcm8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_q3oxd"]
 _surfaces = [{
 "aabb": AABB(-1, -0.50872636, -1.3877394, 2, 0.50872636, 2.9592562),
 "attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAAEC7kyRAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAC7kyRAAAAAAAAAAAAAAABAu5MkQAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAEDkOwI/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAADkOwI/AAAAAAAAAAAAAABA5DsCPwAAAAAAAAAAAAAAAHRkPUAAAAAAAAAAAAAAgD/IhcY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHRkPUAAAAAAAAAAAAAAAAB0ZD1AAAAAAAAAAAAAAIA/yIXGPgAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD90ZD1AAAAAAAAAAAAAAIA/dGQ9QAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAADIhcY+AAAAAAAAAAAAAIA/dGQ9QAAAAAAAAAAA"),
@@ -45,7 +46,7 @@ vertices = Array[Vector3]([Vector3(0, 0, 1.5715168), Vector3(-1, 0, -1), Vector3
 faces = Array[ExtResource("5_o7f5a")]([SubResource("Resource_q3oxd"), SubResource("Resource_8qs7b"), SubResource("Resource_o7f5a"), SubResource("Resource_pqtar")])
 material_slots = Array[Material]([ExtResource("3_q3oxd")])
 
-[node name="LightChassis" type="Node3D" unique_id=790413878]
+[node name="LightChassis" type="Node3D" unique_id=790413878 node_paths=PackedStringArray("left_strafe_mount", "right_strafe_mount", "thruster_mounts", "repulsor_mounts")]
 script = ExtResource("1_8wpmh")
 base_area = 1.5
 base_drag = 0.2
@@ -53,14 +54,41 @@ yaw_speed = 2.0
 air_brake_drag_mod = 1.0
 collision_shape = "uid://d2ugihdjfj7f5"
 angular_damp = 3.0
-thruster_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 1.15)])
-repulsor_mounts = Array[Transform3D]([Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0.7), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.7)])
+left_strafe_mount = NodePath("StrafeMounts/MountLeft")
+right_strafe_mount = NodePath("StrafeMounts/MountRight")
+thruster_mounts = [NodePath("ThrusterMount")]
+repulsor_mounts = [NodePath("RepulsorMounts/Mount1"), NodePath("RepulsorMounts/Mount2"), NodePath("RepulsorMounts/Mount3")]
 mass = 300.0
 metadata/_custom_type_script = "uid://djaiplmgwg04k"
 
 [node name="GoBuildCube" type="MeshInstance3D" parent="." unique_id=838958651]
 transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
 material_override = ExtResource("2_fbcm8")
-mesh = SubResource("ArrayMesh_fbcm8")
+mesh = SubResource("ArrayMesh_q3oxd")
 script = ExtResource("4_8qs7b")
 go_build_mesh = SubResource("Resource_8qsr1")
+
+[node name="StrafeMounts" type="Node3D" parent="." unique_id=303768256]
+visible = false
+
+[node name="MountRight" parent="StrafeMounts" unique_id=1747720675 instance=ExtResource("7_q3oxd")]
+transform = Transform3D(-3.7855177e-08, 0.50000006, 0.8660255, 2.1855698e-08, 0.8660255, -0.50000006, -1, -2.3798672e-16, -4.37114e-08, 0.36240023, 0.1401012, 0.16695905)
+
+[node name="MountLeft" parent="StrafeMounts" unique_id=1599520793 instance=ExtResource("7_q3oxd")]
+transform = Transform3D(-3.785517e-08, -0.49999997, -0.86602545, -2.1855694e-08, 0.86602545, -0.49999997, 1, 0, -4.3711395e-08, -0.362, 0.14, 0.167)
+
+[node name="RepulsorMounts" type="Node3D" parent="." unique_id=1096066610]
+visible = false
+
+[node name="Mount1" parent="RepulsorMounts" unique_id=466425372 instance=ExtResource("7_q3oxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1371945)
+
+[node name="Mount2" parent="RepulsorMounts" unique_id=1180493799 instance=ExtResource("7_q3oxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0.85)
+
+[node name="Mount3" parent="RepulsorMounts" unique_id=1243810503 instance=ExtResource("7_q3oxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 0.85)
+
+[node name="ThrusterMount" parent="." unique_id=1059559959 instance=ExtResource("7_q3oxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24587438, 1.1900679)
+visible = false

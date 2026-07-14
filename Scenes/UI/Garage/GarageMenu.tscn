@@ -135,13 +135,13 @@ popup/item_1/id = 1
 popup/item_2/text = "Heavy Thruster"
 popup/item_2/id = 2
 
-[node name="AuxLabel" type="Label" parent="EditMenu" unique_id=1231332674]
+[node name="StrafeLabel" type="Label" parent="EditMenu" unique_id=1231332674]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "Aux Thrusters"
+text = "Strafe Thrusters"
 horizontal_alignment = 1
 
-[node name="AuxOptions" type="OptionButton" parent="EditMenu" unique_id=626344704]
+[node name="StrafeOptions" type="OptionButton" parent="EditMenu" unique_id=626344704]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -149,7 +149,7 @@ theme_override_font_sizes/font_size = 60
 disabled = true
 alignment = 1
 item_count = 1
-popup/item_0/text = "Auxiliary Thruster"
+popup/item_0/text = "Strafe Thruster"
 popup/item_0/id = 0
 
 [node name="EditBackButton" type="Button" parent="EditMenu" unique_id=1892791308]
@@ -165,5 +165,5 @@ text = "  Back  "
 [connection signal="item_selected" from="EditMenu/ChassisOptions" to="." method="_on_chassis_options_item_selected"]
 [connection signal="item_selected" from="EditMenu/RepulsorOptions" to="." method="_on_repulsor_options_item_selected"]
 [connection signal="item_selected" from="EditMenu/ThrusterOptions" to="." method="_on_thruster_options_item_selected"]
-[connection signal="item_selected" from="EditMenu/AuxOptions" to="." method="_on_aux_options_item_selected"]
+[connection signal="item_selected" from="EditMenu/StrafeOptions" to="." method="_on_strafe_options_item_selected"]
 [connection signal="pressed" from="EditMenu/EditBackButton" to="." method="_on_edit_back_button_pressed"]
