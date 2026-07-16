@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bx1sfcibngsmb"]
+
+[ext_resource type="Script" uid="uid://dfoqrfa6tee8h" path="res://Entities/Racer/Component/Repulsor/Repulsor.gd" id="1_8i74m"]
+[ext_resource type="Material" uid="uid://1nvrnylcajfg" path="res://addons/prototype_mini_bundle/M_prototype_red.tres" id="2_1nb7e"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gast3"]
+top_radius = 0.05
+bottom_radius = 0.1
+height = 0.1
+
+[node name="StrongRepulsor" type="Node3D" unique_id=676188116]
+script = ExtResource("1_8i74m")
+strength = 250.0
+damping = 9.0
+max_distance = 0.4
+max_force = 200.0
+mass = 10.0
+metadata/_custom_type_script = "uid://dfoqrfa6tee8h"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=373804504]
+material_override = ExtResource("2_1nb7e")
+mesh = SubResource("CylinderMesh_gast3")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1871036246]

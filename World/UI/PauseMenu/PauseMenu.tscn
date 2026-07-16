@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://lpx8u7g27hqs"]
+
+[ext_resource type="Script" uid="uid://cgsm37pfva4d0" path="res://World/UI/PauseMenu/pause_menu.gd" id="1_e4e6r"]
+
+[node name="PauseMenu" type="Control" unique_id=2068900795]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4e6r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=518618621]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=312159124]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 60
+text = "  Resume  "
+
+[node name="Restart" type="Button" parent="VBoxContainer" unique_id=1841414678]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+text = "  Restart  "
+
+[node name="MainMenu" type="Button" parent="VBoxContainer" unique_id=576839833]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "  Main Menu  "
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

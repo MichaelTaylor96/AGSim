@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d1rlfayb6ec1b"]
+
+[ext_resource type="Script" uid="uid://crowxx2ojmket" path="res://Entities/Racer/Component/Thruster/Thruster.gd" id="1_uhhtm"]
+[ext_resource type="Material" uid="uid://dgjiw8udooecr" path="res://addons/prototype_mini_bundle/M_prototype_dark.tres" id="2_ms5it"]
+[ext_resource type="PackedScene" uid="uid://blg1e786r14ln" path="res://World/Visuals/RacerVisuals/BoostFlame.tscn" id="3_7ireh"]
+[ext_resource type="PackedScene" uid="uid://d0cyamf3qvofy" path="res://World/Visuals/RacerVisuals/ThrustFlame.tscn" id="4_7xpoy"]
+
+[node name="HeavyThruster" type="Node3D" unique_id=803647051 node_paths=PackedStringArray("boost_flame", "thrust_flame")]
+script = ExtResource("1_uhhtm")
+max_thrust = 20000.0
+boost_modifier = 30000.0
+boost_flame = NodePath("BoostFlame")
+thrust_flame = NodePath("StandardFlame")
+mass = 150.0
+metadata/_custom_type_script = "uid://crowxx2ojmket"
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=220540962]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 0, 0, 0)
+material_override = ExtResource("2_ms5it")
+radius = 0.1
+height = 0.3
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=705009389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.57598305)
+material_override = ExtResource("2_ms5it")
+radial_segments = 20
+rings = 15
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGSphere3D" unique_id=2015322368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0065214634, 0, 0.20135498)
+operation = 2
+size = Vector3(1.1051941, 1, 0.602417)
+
+[node name="BoostFlame" parent="." unique_id=528306677 instance=ExtResource("3_7ireh")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 1.0606279)
+visible = false
+
+[node name="StandardFlame" parent="." unique_id=1114378593 instance=ExtResource("4_7xpoy")]
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, 1.5, 0, -1.5, -6.556708e-08, 0, 0, 0.49185395)
+emitting = false
