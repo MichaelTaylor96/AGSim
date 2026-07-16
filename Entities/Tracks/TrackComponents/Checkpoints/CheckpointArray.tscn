@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://qfbv4f771tx"]
+
+[ext_resource type="Script" uid="uid://b73t6hmgibw0y" path="res://Entities/Tracks/TrackComponents/Checkpoints/checkpoint_array.gd" id="1_pgbip"]
+
+[node name="CheckpointArray" type="Node3D" unique_id=1665575865]
+script = ExtResource("1_pgbip")

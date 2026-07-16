@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dskwy5uy5h2r3"]
 
 [ext_resource type="PackedScene" uid="uid://c60cmocmpb30l" path="res://Entities/Tracks/TrackComponents/StandardTrackPath.tscn" id="1_a3tb2"]
+[ext_resource type="PackedScene" uid="uid://qfbv4f771tx" path="res://Entities/Tracks/TrackComponents/Checkpoints/CheckpointArray.tscn" id="2_0bu1n"]
+[ext_resource type="PackedScene" uid="uid://dcqry5x8cks2c" path="res://Entities/Tracks/TrackComponents/Checkpoints/Checkpoint.tscn" id="3_0bu1n"]
+[ext_resource type="Script" uid="uid://bvijkymap8wck" path="res://Common/Stopwatch.gd" id="4_xiujy"]
 
 [sub_resource type="Curve3D" id="Curve3D_vmt5u"]
 closed = true
@@ -17,3 +20,46 @@ transform = Transform3D(0.9170601, 0, -0.39874908, 0, 1, 0, 0.39874908, 0, 0.917
 curve = SubResource("Curve3D_vmt5u")
 
 [node name="PathFollow3D" parent="Path3D" unique_id=844920027 instance=ExtResource("1_a3tb2")]
+
+[node name="CheckpointArray" parent="." unique_id=1665575865 node_paths=PackedStringArray("checkpoints", "timer") instance=ExtResource("2_0bu1n")]
+checkpoints = [NodePath("Checkpoint1"), NodePath("Checkpoint2"), NodePath("Checkpoint3"), NodePath("Checkpoint4"), NodePath("Checkpoint5"), NodePath("Checkpoint6")]
+timer = NodePath("Stopwatch")
+
+[node name="Checkpoint1" parent="CheckpointArray" unique_id=869970737 instance=ExtResource("3_0bu1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.494074)
+
+[node name="Checkpoint2" parent="CheckpointArray" unique_id=247107733 instance=ExtResource("3_0bu1n")]
+transform = Transform3D(-0.7150585, 0, -0.69906443, 0, 1, 0, 0.69906443, 0, -0.7150585, 159.60822, 0.7498293, -136.4078)
+index = 1
+
+[node name="Checkpoint3" parent="CheckpointArray" unique_id=912042297 instance=ExtResource("3_0bu1n")]
+transform = Transform3D(0.99736154, 0, -0.07259414, 0, 1, 0, 0.07259414, 0, 0.99736154, 195.96896, 3.5011873, 43.199486)
+index = 2
+
+[node name="Checkpoint4" parent="CheckpointArray" unique_id=1882802748 instance=ExtResource("3_0bu1n")]
+transform = Transform3D(0.2644118, 0, 0.96440995, 0, 1, 0, -0.96440995, 0, 0.2644118, -20.588558, 20.132652, 172.81181)
+index = 3
+
+[node name="Checkpoint5" parent="CheckpointArray" unique_id=1841513710 instance=ExtResource("3_0bu1n")]
+transform = Transform3D(0.97041386, 0, -0.2414477, 0, 1, 0, 0.2414477, 0, 0.97041386, -311.20016, 0.02210927, 167.94884)
+index = 4
+
+[node name="Checkpoint6" parent="CheckpointArray" unique_id=1827849883 instance=ExtResource("3_0bu1n")]
+transform = Transform3D(0.91341764, 0, -0.4070236, 0, 1, 0, 0.4070236, 0, 0.91341764, -1.9308026, 0.9017242, 306.4988)
+index = 5
+
+[node name="Stopwatch" type="Label" parent="CheckpointArray" unique_id=822900228]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+script = ExtResource("4_xiujy")
+metadata/_custom_type_script = "uid://bvijkymap8wck"
+
+[node name="Label" type="Label" parent="CheckpointArray" unique_id=1969966748]
+anchors_preset = -1
+anchor_left = 0.000390625
+anchor_top = 0.028472222
+anchor_right = 0.033203125
+anchor_bottom = 0.044444446
+theme_override_font_sizes/font_size = 20
+metadata/_edit_use_anchors_ = true
